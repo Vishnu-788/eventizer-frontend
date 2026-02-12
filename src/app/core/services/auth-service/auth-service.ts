@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, tap} from 'rxjs';
+import {Observable, switchMap, tap} from 'rxjs';
 import {API_ENDPOINTS} from '../../constants/api-endpoints';
 import {AuthStateService} from '../state-service/auth-state-service';
 
@@ -14,7 +14,7 @@ interface SignupPayload {
   username: string | null;
   email: string | null;
   password: string | null;
-  role: string | null;
+  role: string;
 }
 
 interface LoginResponse {
@@ -37,16 +37,24 @@ export class AuthService {
   private http = inject(HttpClient)
   private stateService = inject(AuthStateService)
 
-  login =  (data: LoginPayload): Observable<LoginResponse> => {
+  login (data: LoginPayload): Observable<LoginResponse> {
     return this.http
-      .post<LoginResponse>(API_ENDPOINTS.LOGIN, data)
+      .post<LoginResponse>(API_ENDPOINTS.LOGIN, data, {withCredentials: true})
       .pipe(
-          tap(res => console.log(res))
+          tap(data => this.stateService.setCredentials(data))
       )
   }
 
-  signup = (data: SignupPayload): Observable<any> => {
-    return this.http.post<SignUpResponse>(API_ENDPOINTS.SIGNUP, data)
+  // Calling the login observable after successful registration to improve UX.
+  signup (data: SignupPayload): Observable<LoginResponse>  {
+    return this.http
+      .post<SignUpResponse>(API_ENDPOINTS.SIGNUP, data)
+      .pipe(
+        switchMap(() => this.login({
+          username: data.username,
+          password: data.password,
+        }))
+      )
   }
 
   // Checks whether the user is logged in or not.

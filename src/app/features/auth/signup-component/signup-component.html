@@ -1,1 +1,22 @@
-<p>signup-component works!</p>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  @if (errorMessage()) {
+    <div class="text-danger" >
+      {{errorMessage()}}
+    </div>
+  }
+  <label for="username">Enter your username</label><br>
+  <input type="text" formControlName="username" /><br><br>
+
+  <label for="email">Enter your email</label><br>
+  <input type="email" formControlName="email" /><br><br>
+
+  <label for="password">Enter your password</label><br>
+  <input type="password" formControlName="password" /><br><br>
+
+  <label>
+    Register as a host.
+    <input type="checkbox" formControlName="isHost" />
+  </label>
+
+  <button type="submit" [disabled]="!signupForm.valid">Submit</button>
+</form>

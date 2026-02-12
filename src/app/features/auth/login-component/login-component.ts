@@ -2,10 +2,6 @@ import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from '../../../core/services/auth-service/auth-service';
 
-interface LoginData {
-  username: string;
-  password: string;
-}
 @Component({
   selector: 'app-login-component',
   imports: [ReactiveFormsModule],
@@ -24,11 +20,11 @@ export class LoginComponent {
       .login(this.loginForm.getRawValue())
       .subscribe({
         next: value => {
-          console.log("Success: " + value)
+          console.log("Success: " + value.username);
         },
         error: err => {
-          console.error("Error: " + err)
-          console.error("Error Message: " + err.error.message)
+          console.error("Error: " + err.toString());
+          console.error("Error Message: " + err.error.detail)
         }
       })
   }
