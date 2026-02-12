@@ -1,4 +1,28 @@
 .form-wrapper {
   color: var(--text-primary);
   background-color: var(--bg-base-tint);
+
+  form {
+    color: var(--text-primary);
+    width: 80%;
+    h1 {
+      font-weight: 800;
+      font-size: 4rem;
+    }
+    span {
+      font-size: small;
+      color: var(--text-primary);
+    }
+    button {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-weight: bold;
+    }
+
+    input::placeholder {
+      color: rgba(52, 67, 115, 0.6);
+    }
+  }
+
+
 }
