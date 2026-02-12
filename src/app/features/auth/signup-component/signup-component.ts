@@ -7,14 +7,16 @@ import {HttpErrorResponse} from '@angular/common/http';
 @Component({
   selector: 'app-signup-component',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './signup-component.html',
   styleUrl: './signup-component.scss',
 })
+
 export class SignupComponent {
   private authService = inject(AuthService)
   private router = inject(Router)
+  isLoading = signal<boolean>(false)
   errorMessage = signal<string|null>(null)
 
   signupForm = new FormGroup({
@@ -42,22 +44,13 @@ export class SignupComponent {
     isHost: new FormControl(false)
   })
 
-  private handleServerErrors(errors: any) {
-    if(errors.username){
-      this.errorMessage.set(errors.username);
-    } else if (errors.email){
-      this.errorMessage.set(errors.email);
-    } else {
-      this.errorMessage.set("Unable to signup. Try again later.");
-    }
-  }
-
-  protected username() {
-    return this.signupForm.controls.username;
-  }
-
   onSubmit() {
+    if(this.signupForm.invalid) return
+
+    this.signupForm.disable()
+    this.isLoading.set(true);
     this.errorMessage.set(null)
+
     const {isHost, ...rest} = this.signupForm.getRawValue();
     const payload = {
       username: rest.username,
@@ -65,9 +58,11 @@ export class SignupComponent {
       password: rest.password,
       role: isHost? 'host':'user'
     }
+
     this.authService.signup(payload).subscribe({
       // Handle the success
       next: value => {
+        this.isLoading.set(false);
         if(value.role === 'host') {
           this.router.navigate(['/'])
         } else if (value.role === 'admin') {
@@ -83,5 +78,39 @@ export class SignupComponent {
         }
       }
     })
+  }
+
+  private handleServerErrors(errors: any) {
+    /*
+      Handles the non unique account errors from the server
+   */
+    if(errors.username){
+      const control = this.signupForm.get('username')
+      if(control){
+        control.setErrors({
+          notUnique:true,
+        })
+      }
+    }
+    if(errors.email){
+      const control = this.signupForm.get('email')
+      if(control){
+        control.setErrors({
+          notUnique:true,
+        })
+      }
+    }
+  }
+
+  get username() {
+    return this.signupForm.get('username');
+  }
+
+  get email() {
+    return this.signupForm.get('email');
+  }
+
+  get password() {
+    return this.signupForm.get('password');
   }
 }
