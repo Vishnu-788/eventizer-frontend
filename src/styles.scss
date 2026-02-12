@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-base: #F2F2F2;
+  --bg-base-shade: #F7F7F7;
+  --bg-base-pure: #FFFFFF;
+  --bg-base-tint: #E1E3F2;
+
+  --bg-primary: #E32BF2;
+  --bg-primary-tint: #EAACF2;
+  --bg-primary-shade: #F0DCF2;
+
+  --bg-secondary: #EEF0FF;
+
+  --text-primary: #37437D;
+  --text-secondary: #1268B2;
+}
+
+body {
+  background-color: var(--bg-base-pure);
+}
