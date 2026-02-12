@@ -1,13 +1,14 @@
 import {Component, inject, signal} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {AuthService} from '../../../core/services/auth-service/auth-service';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-signup-component',
   imports: [
     ReactiveFormsModule,
+    RouterLink,
   ],
   templateUrl: './signup-component.html',
   styleUrl: './signup-component.scss',
@@ -73,6 +74,7 @@ export class SignupComponent {
       },
       //handle the error
       error: (err: HttpErrorResponse) => {
+        this.signupForm.enable()
         if (err.status === 400 && err.error) {
           this.handleServerErrors(err.error);
         }
