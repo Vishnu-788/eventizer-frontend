@@ -1,22 +1,16 @@
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-  @if (errorMessage()) {
-    <div class="text-danger" >
-      {{errorMessage()}}
+<div class="container-fluid px-lg-0">
+  <div class="row m-0 min-vh-100">
+    <div class="d-none d-lg-block col-lg-8">
+      left section
     </div>
-  }
-  <label for="username">Enter your username</label><br>
-  <input type="text" formControlName="username" /><br><br>
-
-  <label for="email">Enter your email</label><br>
-  <input type="email" formControlName="email" /><br><br>
-
-  <label for="password">Enter your password</label><br>
-  <input type="password" formControlName="password" /><br><br>
-
-  <label>
-    Register as a host.
-    <input type="checkbox" formControlName="isHost" />
-  </label>
-
-  <button type="submit" [disabled]="!signupForm.valid">Submit</button>
-</form>
+    <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center p-0">
+      <div class="form-wrapper d-flex justify-content-center align-items-center h-100 p-0">
+        <form>
+          <input>
+          <input>
+          <button>Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
