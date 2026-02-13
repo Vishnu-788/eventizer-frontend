@@ -25,6 +25,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   let authReq = req;
 
   if (accessToken) {
+    console.log(`Interceptor Logging: Request Made by: ${req.url}, AccessToken: ${accessToken}`)
     authReq = req.clone({
       setHeaders: {
         Authorization: `Bearer ${accessToken}`

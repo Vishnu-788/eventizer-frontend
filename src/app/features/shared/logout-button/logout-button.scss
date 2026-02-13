@@ -1,4 +1,14 @@
-button {
-  background-color: var(--bg-primary);
+.logout-btn {
+  background: var(--text-primary);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.logout-btn:hover {
+  background-color: var(--bg-base-pure);
   color: var(--text-primary);
 }

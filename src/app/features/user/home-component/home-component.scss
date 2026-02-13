@@ -1,0 +1,10 @@
+.home-wrapper {
+  background-color: var(--bg-base-shade);
+  border-radius: 20px;
+  .list-events {
+    width: 60%;
+  }
+  .llm-chat-interface {
+    width: 40%;
+  }
+}

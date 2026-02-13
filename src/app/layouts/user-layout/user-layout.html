@@ -3,11 +3,11 @@
     <div class="col-3">
       <app-sidebar-component />
     </div>
-    <div class="col-9 ">
+    <div class="col-9 d-flex flex-column gap-2 flex-fill">
       <header>
         <app-navbar-component />
       </header>
-      <main>
+      <main class="flex-fill">
         <router-outlet />
       </main>
     </div>

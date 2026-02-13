@@ -1,0 +1,42 @@
+<div class="chat-container d-flex flex-column h-100 rounded-4">
+
+  <!-- Chat Header -->
+  <div class="chat-header px-4 py-3">
+    <h6 class="mb-0 fw-semibold">AI Assistant</h6>
+  </div>
+
+  <!-- Messages -->
+  <div class="chat-messages flex-fill px-4 py-3 overflow-auto">
+
+    <!-- Bot Message -->
+    <div class="message bot-message mb-3">
+      <div class="message-bubble">
+        Hello 👋 How can I help you today?
+      </div>
+    </div>
+
+    <!-- User Message -->
+    <div class="message user-message mb-3 text-end">
+      <div class="message-bubble">
+        Show my bookings.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Input -->
+  <div class="chat-input px-4 py-3">
+    <div class="d-flex gap-2">
+      <input
+        type="text"
+        class="form-control rounded-pill"
+        placeholder="Type your message..."
+      />
+      <button class="send-btn rounded-circle">
+        ➤
+      </button>
+    </div>
+  </div>
+
+</div>
+
