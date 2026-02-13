@@ -19,6 +19,10 @@ export class AuthStateService {
     this.role = data.role;
   }
 
+  setAccess(access: string) {
+    this.access = access;
+  }
+
   // getters
   getUsername = (): string | null => {return this.username;}
   getAccess = (): string | null => {return this.access;}

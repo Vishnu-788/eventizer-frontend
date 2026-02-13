@@ -1,3 +1,27 @@
+.brand-section {
+  color: white;
+  background: linear-gradient(
+      135deg,
+      var(--text-primary) 0%,
+      var(--bg-primary) 100%
+  );
+  min-height: 100%;
+
+  .wrapper {
+    h1 {
+      font-weight: 900;
+      font-size: 6rem;
+    }
+    h3 {
+      font-weight: 600;
+      font-size: 4rem;
+    }
+    p {
+      font-size: 1.8rem;
+    }
+  }
+}
+
 .signup-form-wrapper {
   color: var(--text-primary);
   background-color: var(--bg-base-tint);

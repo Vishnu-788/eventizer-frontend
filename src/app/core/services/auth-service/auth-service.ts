@@ -69,4 +69,23 @@ export class AuthService {
   isAdmin = (): boolean => {
     return this.isAuthenticated() && this.stateService.getRole() === 'admin'
   }
+
+  getAccessToken(){
+    return this.stateService.getAccess()
+  }
+  setAccessToken = (token: string) => {
+    this.stateService.setAccess(token)
+  }
+
+  logout(){
+    console.log("User performed log ou")
+  }
+
+  refreshToken(): Observable<any> {
+    return this.http.post(
+      API_ENDPOINTS.REFRESH_TOKEN,
+      {},
+      { withCredentials: true }
+    );
+  }
 }
