@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, switchMap, tap} from 'rxjs';
+import {finalize, Observable, switchMap, tap} from 'rxjs';
 import {API_ENDPOINTS} from '../../constants/api-endpoints';
 import {AuthStateService} from '../state-service/auth-state-service';
 
@@ -21,7 +21,7 @@ interface LoginResponse {
   access: string
   username: string
   role: string
-  verified: boolean
+  isVerified: boolean
 }
 
 interface SignUpResponse {
@@ -37,9 +37,9 @@ export class AuthService {
   private http = inject(HttpClient)
   private stateService = inject(AuthStateService)
 
-  login (data: LoginPayload): Observable<LoginResponse> {
+  login (payload: LoginPayload): Observable<LoginResponse> {
     return this.http
-      .post<LoginResponse>(API_ENDPOINTS.LOGIN, data, {withCredentials: true})
+      .post<LoginResponse>(API_ENDPOINTS.LOGIN, payload, {withCredentials: true})
       .pipe(
           tap(data => this.stateService.setCredentials(data))
       )
@@ -66,6 +66,10 @@ export class AuthService {
     return this.isAuthenticated() && this.stateService.getRole() === 'host'
   }
 
+  isVerified = (): boolean => {
+    return this.stateService.verified()
+  }
+
   isAdmin = (): boolean => {
     return this.isAuthenticated() && this.stateService.getRole() === 'admin'
   }
@@ -78,7 +82,15 @@ export class AuthService {
   }
 
   logout(){
-    console.log("User performed log ou")
+    return this.http.post(
+      API_ENDPOINTS.LOGOUT,
+      {},
+      { withCredentials: true }
+    ).pipe(
+      finalize(() => {
+        this.stateService.removeCredentials();
+      })
+    )
   }
 
   refreshToken(): Observable<any> {

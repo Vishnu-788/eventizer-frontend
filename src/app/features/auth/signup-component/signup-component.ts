@@ -46,7 +46,10 @@ export class SignupComponent {
   })
 
   onSubmit() {
-    if(this.signupForm.invalid) return
+    if(this.signupForm.invalid) {
+      this.signupForm.markAllAsTouched()
+      return
+    }
 
     this.signupForm.disable()
     this.isLoading.set(true);
@@ -65,9 +68,9 @@ export class SignupComponent {
       next: value => {
         this.isLoading.set(false);
         if(value.role === 'host') {
-          this.router.navigate(['/'])
+          this.router.navigate(['/host'])
         } else if (value.role === 'admin') {
-          this.router.navigate(['/'])
+          this.router.navigate(['/admin'])
         } else {
           this.router.navigate(['/'])
         }
@@ -75,6 +78,9 @@ export class SignupComponent {
       //handle the error
       error: (err: HttpErrorResponse) => {
         this.signupForm.enable()
+        if(err.status === 0){
+          this.errorMessage.set("There is a server error, will fix it soon.")
+        }
         if (err.status === 400 && err.error) {
           this.handleServerErrors(err.error);
         }

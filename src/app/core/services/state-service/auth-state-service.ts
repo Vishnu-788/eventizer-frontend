@@ -3,6 +3,7 @@ interface Credentials {
   username: string;
   access: string;
   role: string;
+  verified: boolean;
 }
 
 @Injectable({
@@ -12,19 +13,30 @@ export class AuthStateService {
   private username: string | null = null;
   private access: string | null = null;
   private role: string | null = null;
+  private isVerified: boolean = false;
+
 
   setCredentials = (data: Credentials): void => {
     this.username = data.username;
     this.access = data.access;
     this.role = data.role;
+    this.isVerified = data.verified
   }
 
   setAccess(access: string) {
     this.access = access;
   }
 
+  removeCredentials = () => {
+    this.access = null;
+    this.username = null;
+    this.role = null;
+    this.isVerified = false;
+  }
+
   // getters
   getUsername = (): string | null => {return this.username;}
   getAccess = (): string | null => {return this.access;}
   getRole = (): string | null => {return this.role;}
+  verified (): boolean {return this.isVerified;}
 }

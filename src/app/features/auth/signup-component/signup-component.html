@@ -12,7 +12,6 @@
     <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center p-0">
       <div class="signup-form-wrapper d-flex justify-content-center align-items-center w-100 h-100 p-0">
         <form
-
           [formGroup]="signupForm"
           (ngSubmit)="onSubmit()"
         >
@@ -22,7 +21,11 @@
               Let us help you find your desired events.
             </h5>
           </div>
-
+          @if (errorMessage()) {
+            <div class="error">
+              <small class="error-text">{{errorMessage()}}</small>
+            </div>
+          }
           <div class="mb-3">
             <label for="username" class="form-label">
               Username

@@ -3,11 +3,14 @@ import {RouterOutlet} from '@angular/router';
 import {LogoutButton} from '../../features/shared/logout-button/logout-button';
 
 @Component({
-  selector: 'app-user-layout',
-  imports: [RouterOutlet, LogoutButton],
-  templateUrl: './user-layout.html',
-  styleUrl: './user-layout.scss',
+  selector: 'app-admin-layout',
+  imports: [
+    RouterOutlet,
+    LogoutButton
+  ],
+  templateUrl: './admin-layout.html',
+  styleUrl: './admin-layout.scss',
 })
-export class UserLayout {
+export class AdminLayout {
 
 }
