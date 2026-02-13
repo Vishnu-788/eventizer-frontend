@@ -38,6 +38,13 @@ export class AuthStateService {
     this.isVerified = false;
   }
 
+  loadAuthStateFromLocalStorage = (accessToken: string) => {
+    this.username = localStorage.getItem('username');
+    this.access = accessToken
+    this.role = localStorage.getItem('role');
+    this.isVerified = localStorage.getItem('isVerified') === 'true'
+  }
+
   // getters
   getUsername = (): string | null => {return this.username;}
   getAccess = (): string | null => {return this.access;}

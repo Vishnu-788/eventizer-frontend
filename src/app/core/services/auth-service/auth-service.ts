@@ -92,7 +92,7 @@ export class AuthService {
       { withCredentials: true }
     ).pipe(
       finalize(() => {
-        this.stateService.removeCredentials();
+        this.clearCredentials()
       })
     )
   }
@@ -103,5 +103,12 @@ export class AuthService {
       {},
       { withCredentials: true }
     );
+  }
+
+  loadAuthStateFromLocalStorage(accessToken: string){
+    this.stateService.loadAuthStateFromLocalStorage(accessToken);
+  }
+  clearCredentials() {
+    this.stateService.removeCredentials()
   }
 }
