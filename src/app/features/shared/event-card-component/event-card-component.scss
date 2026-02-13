@@ -1,0 +1,53 @@
+.event-card {
+  width: 99%;
+  padding: 22px 26px;
+  border-radius: 20px;
+  background-color: var(--bg-base-pure);
+  border: 1px solid var(--bg-base-shade);
+  transition: all 0.2s ease;
+}
+
+.event-card:hover {
+  background-color: var(--bg-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+}
+
+.event-info h5 {
+  color: var(--text-primary);
+}
+
+.event-info p {
+  color: #6c757d; // keep Bootstrap muted tone
+}
+
+/* Meta info */
+.event-info span {
+  color: var(--text-primary);
+  opacity: 0.8;
+}
+
+/* Price */
+.text-end .fw-bold {
+  color: var(--text-primary);
+}
+
+/* Seats text */
+.text-end .small {
+  color: #6c757d;
+}
+
+/* Button */
+.book-btn {
+  background-color: var(--bg-primary);
+  color: white;
+  border: none;
+  padding: 6px 18px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.book-btn:hover {
+  background-color: #c81fd6;
+  box-shadow: 0 4px 12px rgba(227, 43, 242, 0.3);
+}

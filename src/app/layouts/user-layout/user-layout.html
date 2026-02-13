@@ -1,15 +1,19 @@
 <div class="container-fluid vh-100 p-3">
   <div class="d-flex gap-2 h-100">
-    <div class="col-3">
+
+    <div style="width: 20%;">
       <app-sidebar-component />
     </div>
-    <div class="col-9 d-flex flex-column gap-2 flex-fill">
+
+    <div class="flex-fill d-flex flex-column gap-2 min-h-0">
       <header>
         <app-navbar-component />
       </header>
-      <main class="flex-fill">
+
+      <main class="flex-fill min-h-0 overflow-hidden">
         <router-outlet />
       </main>
     </div>
+
   </div>
 </div>

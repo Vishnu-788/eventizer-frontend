@@ -19,6 +19,30 @@
 
 }
 
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--bg-base-shade);
+  border-radius: 10px;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background: var(--bg-primary);
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+/* Thumb hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #c81fd6;
+}
+
+
 body {
   background-color: var(--bg-base-pure);
 }

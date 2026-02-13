@@ -5,4 +5,6 @@ export const API_ENDPOINTS = {
   SIGNUP: `${BASE}/auth/register/`,
   REFRESH_TOKEN: `${BASE}/auth/token/refresh/`,
   LOGOUT: `${BASE}/auth/logout/`,
+
+  GET_ALL_EVENTS: `${BASE}/events/`,
 }
