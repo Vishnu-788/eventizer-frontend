@@ -21,6 +21,10 @@ export class AuthStateService {
     this.access = data.access;
     this.role = data.role;
     this.isVerified = data.verified
+
+    localStorage.setItem('username', data.username);
+    localStorage.setItem('role', data.role)
+    localStorage.setItem('isVerified', JSON.stringify(this.isVerified));
   }
 
   setAccess(access: string) {

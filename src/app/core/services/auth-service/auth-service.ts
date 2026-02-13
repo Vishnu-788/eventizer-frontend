@@ -21,7 +21,7 @@ interface LoginResponse {
   access: string
   username: string
   role: string
-  isVerified: boolean
+  verified: boolean
 }
 
 interface SignUpResponse {
@@ -72,6 +72,10 @@ export class AuthService {
 
   isAdmin = (): boolean => {
     return this.isAuthenticated() && this.stateService.getRole() === 'admin'
+  }
+
+  getUsername() {
+    return this.stateService.getUsername()
   }
 
   getAccessToken(){

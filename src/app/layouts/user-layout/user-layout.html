@@ -1,12 +1,11 @@
-<div class="container-fluid">
-  <div class="d-flex gap-2">
-    <aside class="col-3">
-      Sidebar goes in here.
-    </aside>
-    <div class="col-9">
+<div class="container-fluid vh-100 p-3">
+  <div class="d-flex gap-2 h-100">
+    <div class="col-3">
+      <app-sidebar-component />
+    </div>
+    <div class="col-9 ">
       <header>
-        Navbar goes in here
-        <app-logout-button />
+        <app-navbar-component />
       </header>
       <main>
         <router-outlet />
