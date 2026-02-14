@@ -7,17 +7,17 @@
       <div>
         <div class="fw-semibold">
           Seats:
-          {{ selectedSeatIds().length > 0 ? selectedSeatIds().join(', ') : 'None' }}
+          {{selectedSeatNumbers()}}
         </div>
 
         <div class="fw-bold">
-          ₹{{ selectedSeatIds().length * (event_price ? event_price: 0) }}
+          ₹{{ totalPrice() }}
         </div>
       </div>
 
       <button
         class="btn ms-auto px-4"
-        [disabled]="selectedSeatIds().length === 0">
+        [disabled]="selectedSeats().length === 0">
         Book Now
       </button>
 
@@ -40,7 +40,7 @@
                 class="seat btn"
                 [ngClass]="{
               'seat-booked': seat.booked,
-              'seat-selected': this.selectedSeatIds().includes(seat.id)
+              'seat-selected': this.isSeatSelected(seat)
               }"
                 [disabled]="seat.booked"
                 (click)="toggleSeatBooking(seat)"

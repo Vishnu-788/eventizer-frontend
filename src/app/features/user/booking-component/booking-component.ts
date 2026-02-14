@@ -1,4 +1,4 @@
-import {Component, inject, signal} from '@angular/core';
+import {Component, computed, inject, signal} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SeatModel} from '../../../core/models/seat.model';
 import {BookingService} from './booking-service';
@@ -18,10 +18,18 @@ export class BookingComponent {
   private activatedRoute = inject(ActivatedRoute)
   private bookingService = inject(BookingService)
   readonly eventId = this.activatedRoute.snapshot.paramMap.get('id');
-  totalPrice = signal<number>(0)
-  selectedSeatIds = signal<number[]>([])
+  selectedSeats = signal<SeatModel[]>([])
   eventSeats = signal<SeatModel[][] | null>(null)
   event_price: number | null = null
+  totalPrice = computed(() =>
+    this.selectedSeats().length * (this.event_price ?? 0)
+  );
+  selectedSeatNumbers = computed(() => {
+    const seats = this.selectedSeats();
+    if (!seats.length) return 'None';
+    return seats.map(s => s.seat_no).join(', ');
+  });
+
 
   ngOnInit() {
     console.log("Booking seats.")
@@ -46,13 +54,19 @@ export class BookingComponent {
   Removes the id if the id exists in the array
    */
   toggleSeatBooking(seat: SeatModel) {
-    if(seat.booked) return;
-    this.selectedSeatIds.update(ids => {
-      if(ids.includes(seat.id)){
-        return ids.filter(id => id !== seat.id)
+    if (seat.booked) return;
+    this.selectedSeats.update(seats => {
+      const exists = seats.some(s => s.id === seat.id);
+      if (exists) {
+        return seats.filter(s => s.id !== seat.id);
       } else {
-        return [...ids, seat.id]
+        return [...seats, seat];
       }
-    })
+    });
   }
+
+  isSeatSelected(seat: SeatModel): boolean {
+    return this.selectedSeats().some(s => s.id === seat.id);
+  }
+
 }
