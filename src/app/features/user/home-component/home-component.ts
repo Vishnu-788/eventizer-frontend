@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {LlmChatComponent} from '../llm-chat-component/llm-chat-component';
+// import {LlmChatComponent} from '../llm-chat-component/llm-chat-component';
 import {HomeService} from './home-service';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {EventCardComponent} from '../../shared/event-card-component/event-card-component';
@@ -9,7 +9,7 @@ import {EventCardComponent} from '../../shared/event-card-component/event-card-c
 @Component({
   selector: 'app-home-component',
   imports: [
-    LlmChatComponent,
+    // LlmChatComponent,
     EventCardComponent
   ],
   templateUrl: './home-component.html',

@@ -1,0 +1,51 @@
+<div class="event-wrapper d-flex flex-column p-2">
+
+  <div class="event-card flex-grow-1 p-4 w-100">
+
+    <h2 class="event-title mb-3">
+      {{event()?.e_title}}
+    </h2>
+
+    <div class="event-meta mb-3">
+      <span><strong>Date:</strong> {{event()?.e_date}}</span> |
+      <span><strong>Time:</strong> {{event()?.e_start_time}} - {{event()?.e_end_time}}</span>
+    </div>
+
+    <div class="mb-2">
+      <strong>Category:</strong> {{event()?.e_category}}
+    </div>
+
+    <div class="mb-2">
+      <strong>Venue:</strong> {{event()?.e_venue}}
+    </div>
+
+    <div class="mb-2">
+      <strong>Total Seats:</strong> {{event()?.total_seats}}
+    </div>
+
+    <div class="price-action-wrapper mt-4">
+      <div class="price-box">
+        {{ event()?.price }} Rs
+      </div>
+      <a class="book-btn" [routerLink]="[`/book/event/${event()?.id}`]">
+        Book Now
+      </a>
+
+    </div>
+
+
+    <h5 class="section-title mt-4">About the Event</h5>
+    <p class="event-description">
+      {{event()?.e_description}}
+    </p>
+
+    <h5 class="section-title mt-4">Host Information</h5>
+    <p class="host-info">
+      <strong>Company:</strong> {{event()?.host?.company_name}} <br>
+      <strong>Contact:</strong> {{event()?.host?.company_contact_no}} <br>
+      <strong>Email:</strong>{{event()?.host?.company_contact_email}}
+    </p>
+
+  </div>
+
+</div>

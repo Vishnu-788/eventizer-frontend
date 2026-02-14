@@ -12,6 +12,8 @@ import {authGuard} from './core/guards/auth-guard/auth-guard';
 import {adminGuard} from './core/guards/auth-guard/admin-guard';
 import {hostGuard} from './core/guards/auth-guard/host-guard';
 import {noauthGuard} from './core/guards/not-authenticated/noauth-guard';
+import {EventDetailComponent} from './features/shared/event-detail-component/event-detail-component';
+import {BookingComponent} from './features/user/booking-component/booking-component';
 
 export const routes: Routes = [
   {
@@ -19,11 +21,9 @@ export const routes: Routes = [
     component: UserLayout,
     canActivate: [authGuard],
     children: [
-      {
-        path: '',
-        component: HomeComponent
-      }
-      // Rest of the user layout oath goes in here.
+      { path: '', component: HomeComponent },
+      { path: 'event/:id', component: EventDetailComponent },
+      { path: 'book/event/:id', component: BookingComponent}
     ]
   },
   {
@@ -31,14 +31,8 @@ export const routes: Routes = [
     component: AuthLayout,
     canActivate: [noauthGuard],
     children: [
-      {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: 'signup',
-        component: SignupComponent
-      }
+      { path: 'login', component: LoginComponent },
+      { path: 'signup', component: SignupComponent }
     ]
   },
   {
@@ -46,10 +40,7 @@ export const routes: Routes = [
     component: AdminLayout,
     canActivate: [authGuard, adminGuard],
     children: [
-      {
-        path: '',
-        component: AdminDashboard
-      }
+      { path: '', component: AdminDashboard }
     ]
   },
   {
@@ -57,10 +48,7 @@ export const routes: Routes = [
     component: HostLayout,
     canActivate: [authGuard, hostGuard],
     children: [
-      {
-        path: '',
-        component: HostDashboard
-      }
+      { path: '', component: HostDashboard }
     ]
   }
 ];

@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import {Component, inject, input} from '@angular/core';
 import {CityEvent} from '../../../core/models/event.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-event-card-component',
@@ -8,5 +9,10 @@ import {CityEvent} from '../../../core/models/event.model';
   styleUrl: './event-card-component.scss',
 })
 export class EventCardComponent {
+  private router = inject(Router)
   event = input.required<CityEvent>()
+  handleClick() {
+    const id = this.event().id
+    this.router.navigate(['/event', id])
+  }
 }

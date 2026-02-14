@@ -86,11 +86,8 @@ export class AuthService {
   }
 
   logout(){
-    return this.http.post(
-      API_ENDPOINTS.LOGOUT,
-      {},
-      { withCredentials: true }
-    ).pipe(
+    return this.http.post(API_ENDPOINTS.LOGOUT, {}, { withCredentials: true })
+      .pipe(
       finalize(() => {
         this.clearCredentials()
       })
@@ -98,11 +95,7 @@ export class AuthService {
   }
 
   refreshToken(): Observable<any> {
-    return this.http.post(
-      API_ENDPOINTS.REFRESH_TOKEN,
-      {},
-      { withCredentials: true }
-    );
+    return this.http.post(API_ENDPOINTS.REFRESH_TOKEN, {}, { withCredentials: true });
   }
 
   loadAuthStateFromLocalStorage(accessToken: string){

@@ -1,0 +1,72 @@
+.event-wrapper {
+  background-color: var(--bg-base-shade);
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  width:100%;
+  overflow-y: auto;
+}
+
+.event-card {
+  background-color: var(--bg-base-pure);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.event-title {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.event-meta {
+  color: var(--text-primary);
+  opacity: 0.8;
+}
+
+.section-title {
+  color: var(--bg-primary);
+  font-weight: 600;
+}
+
+.price-action-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.price-box {
+  background-color: var(--bg-primary-shade);
+  color: var(--bg-primary);
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.book-btn {
+  background-color: var(--bg-primary);
+  color: var(--bg-base-pure);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: var(--bg-primary-tint);
+  cursor: pointer;
+}
+
+
+.event-description {
+  color: var(--text-primary);
+}
+
+.host-info {
+  background-color: var(--bg-secondary);
+  padding: 12px;
+  border-radius: 10px;
+}
+

@@ -7,4 +7,5 @@ export const API_ENDPOINTS = {
   LOGOUT: `${BASE}/auth/logout/`,
 
   GET_ALL_EVENTS: `${BASE}/events/`,
+  GET_EVENT_DETAILS: `${BASE}/events/`,
 }
