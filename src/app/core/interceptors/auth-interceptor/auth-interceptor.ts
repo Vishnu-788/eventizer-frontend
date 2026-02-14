@@ -35,26 +35,17 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(authReq).pipe(
     catchError((error: HttpErrorResponse) => {
-      console.error("Catch error in the interceptor triggered!!!")
-      console.error(error)
-      const isTokenExpired =
-        error.status === 401 &&
-        error.error?.error === 'access_token_expired';
-
+      const isTokenExpired = error.status === 401 && error.error?.error === 'access_token_expired';
       if (isTokenExpired) {
-
         return authService.refreshToken().pipe(
           switchMap((response: any) => {
-
             const newAccessToken = response.access;
             authService.setAccessToken(newAccessToken);
-
             const retryReq = req.clone({
               setHeaders: {
                 Authorization: `Bearer ${newAccessToken}`
               }
             });
-
             return next(retryReq);
           }),
           catchError(refreshError => {
@@ -63,7 +54,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
           })
         );
       }
-
       return throwError(() => error);
     })
   );

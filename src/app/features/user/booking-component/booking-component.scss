@@ -1,0 +1,75 @@
+.booking-wrapper {
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+}
+
+.stage {
+   width: 50%;
+   height: 35px;
+   background: var(--bg-base-tint);
+   color: var(--text-primary);
+   margin: auto;
+   border-radius: 40px;
+   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+   line-height: 35px;
+   font-weight: 600;
+   font-size: 13px;
+   text-align: center;
+ }
+
+.seat-container {
+  margin-top: 4rem;
+}
+
+.seat {
+  width: 32px;          /* reduced */
+  height: 32px;         /* reduced */
+  border-radius: 6px;
+  font-size: 11px;
+  background-color: var(--bg-base-pure);
+  color: var(--text-primary);
+  border: 1px solid var(--bg-base-tint);
+  transition: 0.2s ease;
+  padding: 0;
+}
+
+.seat:hover {
+  background-color: var(--bg-primary-tint);
+  color: var(--bg-primary);
+  border-color: var(--bg-primary);
+}
+
+.seat-booked {
+  background-color: var(--bg-base-shade);
+  color: #9aa0b5;
+  border: 1px solid var(--bg-base-tint);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.seat-selected {
+  background-color: var(--bg-primary);
+  color: white;
+  border: 1px solid var(--bg-primary);
+}
+
+.booking-header {
+  background: var(--bg-base-pure);
+  border: 1px solid var(--bg-base-tint);
+}
+
+.booking-header .btn {
+  background-color: var(--bg-primary);
+  color: white;
+  border: none;
+}
+
+.booking-header .btn:disabled {
+  background-color: var(--bg-base-shade);
+  color: #999;
+}
+
+

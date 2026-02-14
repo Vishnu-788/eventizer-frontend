@@ -1,1 +1,54 @@
-<p>booking-component works!</p>
+<div class="booking-wrapper">
+  <div class="container py-4">
+
+    <!-- Top Section -->
+    <div class="booking-header mt-4 w-100 p-3 rounded shadow-sm d-flex align-items-center">
+
+      <div>
+        <div class="fw-semibold">
+          Seats:
+          {{ selectedSeatIds().length > 0 ? selectedSeatIds().join(', ') : 'None' }}
+        </div>
+
+        <div class="fw-bold">
+          ₹{{ selectedSeatIds().length * (event_price ? event_price: 0) }}
+        </div>
+      </div>
+
+      <button
+        class="btn ms-auto px-4"
+        [disabled]="selectedSeatIds().length === 0">
+        Book Now
+      </button>
+
+    </div>
+  </div>
+
+  <div>
+      <div class="text-center mb-4">
+        <h4 class="fw-bold">Select Your Seats</h4>
+        <div class="stage mb-3">STAGE</div>
+      </div>
+
+      <div class="seat-container d-flex flex-column align-items-center gap-2">
+
+        @for (row of eventSeats(); track $index) {
+          <div class="d-flex gap-2 justify-content-center">
+
+            @for (seat of row; track seat.id) {
+              <button
+                class="seat btn"
+                [ngClass]="{
+              'seat-booked': seat.booked,
+              'seat-selected': this.selectedSeatIds().includes(seat.id)
+              }"
+                [disabled]="seat.booked"
+                (click)="toggleSeatBooking(seat)"
+              >
+                {{ seat.seat_no }}
+              </button>
+            }
+          </div>
+        }
+  </div>
+</div>
