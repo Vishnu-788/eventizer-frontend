@@ -7,21 +7,34 @@
     <div class="items-container flex-grow-1">
       <ul class="nav flex-column gap-2 sidebar-nav">
         <li class="nav-item">
-          <a class="nav-link sidebar-link" href="#">Dashboard</a>
+          <a
+            class="nav-link sidebar-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            Dashboard
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link sidebar-link active" href="#">
+          <a
+            class="nav-link sidebar-link"
+            routerLink="/bookings"
+            routerLinkActive="active"
+          >
             Bookings
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link sidebar-link" href="#">Invoices</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link sidebar-link" href="#">Profile</a>
+          <a
+            class="nav-link sidebar-link"
+            routerLink="/profile"
+            routerLinkActive="active"
+          >
+            Profile
+          </a>
         </li>
       </ul>
     </div>

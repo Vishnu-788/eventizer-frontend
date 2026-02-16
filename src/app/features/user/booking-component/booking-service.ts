@@ -9,6 +9,20 @@ interface SeatResponse {
   seats: SeatModel[];
 }
 
+interface BookingData {
+  seats: number[],
+  event: number
+}
+
+interface BookingResponse {
+  id: number;
+  user: number;
+  event: number;
+  seats: number[];
+  total_amount: number[];
+  booking_status: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -26,5 +40,13 @@ export class BookingService {
       rows.push(seatsData.slice(i, i + 20));
     }
     return rows;
+  }
+
+  confirmBooking(data: BookingData): Observable<BookingResponse>{
+    return this.http.post<BookingResponse>(API_ENDPOINTS.CONFIRM_BOOKING, data)
+  }
+
+  handle_payment(bookingId: number){
+    return this.http.post<{"approval_url": string}>(`${API_ENDPOINTS.PAYMENT_BOOKING}${bookingId}/booking/`, {})
   }
 }

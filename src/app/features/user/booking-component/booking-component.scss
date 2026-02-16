@@ -71,4 +71,36 @@
   color: #999;
 }
 
+/* Error container */
+.error-box {
+  background: #fff2f2;
+  border: 1px solid #ffb3b3;
+  border-left: 4px solid #ff4d4f;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin: 8px 0;
+}
+
+/* Error title (optional) */
+.error-title {
+  color: #d32f2f;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+/* Error message text */
+.error-text {
+  color: #a8071a;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Field level error (form inputs) */
+.error-inline {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
 

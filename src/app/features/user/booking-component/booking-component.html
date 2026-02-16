@@ -1,6 +1,11 @@
 <div class="booking-wrapper">
   <div class="container py-4">
-
+    @if (errorMessage()) {
+      <div class="error-box">
+        <div class="error-title">Booking failed</div>
+        <div class="error-text">{{ errorMessage() }}</div>
+      </div>
+    }
     <!-- Top Section -->
     <div class="booking-header mt-4 w-100 p-3 rounded shadow-sm d-flex align-items-center">
 
@@ -17,8 +22,10 @@
 
       <button
         class="btn ms-auto px-4"
-        [disabled]="selectedSeats().length === 0">
-        Book Now
+        [disabled]="selectedSeats().length === 0"
+        (click)="handleBooking()"
+      >
+        Check out
       </button>
 
     </div>

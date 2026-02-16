@@ -14,6 +14,10 @@ import {hostGuard} from './core/guards/auth-guard/host-guard';
 import {noauthGuard} from './core/guards/not-authenticated/noauth-guard';
 import {EventDetailComponent} from './features/shared/event-detail-component/event-detail-component';
 import {BookingComponent} from './features/user/booking-component/booking-component';
+import {ViewBookingsComponent} from './features/user/view-bookings-component/view-bookings-component';
+import {ProfileComponent} from './features/user/profile-component/profile-component';
+import {PaymentProcessingComponent} from './features/user/payment-processing-component/payment-processing-component';
+import {PaymentCancelComponent} from './features/user/payment-cancel-component/payment-cancel-component';
 
 export const routes: Routes = [
   {
@@ -23,7 +27,11 @@ export const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'event/:id', component: EventDetailComponent },
-      { path: 'book/event/:id', component: BookingComponent}
+      { path: 'book/event/:id', component: BookingComponent },
+      { path: 'bookings', component: ViewBookingsComponent },
+      { path: 'profile', component: ProfileComponent},
+      { path: 'payment/processing', component: PaymentProcessingComponent },
+      { path: 'payment/cancel', component: PaymentCancelComponent },
     ]
   },
   {

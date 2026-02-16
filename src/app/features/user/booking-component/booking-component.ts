@@ -20,10 +20,12 @@ export class BookingComponent {
   readonly eventId = this.activatedRoute.snapshot.paramMap.get('id');
   selectedSeats = signal<SeatModel[]>([])
   eventSeats = signal<SeatModel[][] | null>(null)
+  errorMessage = signal<string | null>("Error")
   event_price: number | null = null
   totalPrice = computed(() =>
     this.selectedSeats().length * (this.event_price ?? 0)
   );
+
   selectedSeatNumbers = computed(() => {
     const seats = this.selectedSeats();
     if (!seats.length) return 'None';
@@ -69,4 +71,32 @@ export class BookingComponent {
     return this.selectedSeats().some(s => s.id === seat.id);
   }
 
+  /*
+  Data to be passed
+  eventId
+  seats=seatIds[]
+   */
+  handleBooking() {
+    this.errorMessage.set(null)
+    const seats: number[] = this.selectedSeats().map(s => s.id)
+    this.bookingService.confirmBooking(
+      {'seats': seats, 'event': Number(this.eventId)}
+    ).subscribe({
+      next: bookingResponse => {
+       // handle the success
+        console.log("Booking Response: " + bookingResponse)
+        this.bookingService.handle_payment(bookingResponse.id).subscribe({
+          next: paymentResponse => {
+            window.location.href=paymentResponse.approval_url
+          },
+          error: err => {
+            this.errorMessage.set(err.detail)
+          }
+        })
+      },
+      error: err => {
+        this.errorMessage.set(err.detail)
+      }
+    })
+  }
 }
