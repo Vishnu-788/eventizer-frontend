@@ -12,4 +12,5 @@ export const API_ENDPOINTS = {
   CONFIRM_BOOKING: `${BASE}/bookings/`,
   PAYMENT_BOOKING: `${BASE}/payments/`, // Pass the booking id via request url and attach '/booking' at the end.
   PAYMENT_STATUS_POLLING: `${BASE}/payments/status/`, // Pass the PayPal order id in the url.
+  HOST_DETAIL: `${BASE}/host/`,
 }

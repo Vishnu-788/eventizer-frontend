@@ -1,0 +1,57 @@
+<aside class="d-flex h-100">
+  <div class="host-sidebar-container d-flex flex-column rounded-4 flex-fill py-4 px-3">
+    <header class="mb-4">
+      <h4 class="fw-bold text-primary-custom text-center">Eventizer</h4>
+    </header>
+
+    <div class="items-container flex-grow-1">
+      <ul class="nav flex-column gap-2 sidebar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link sidebar-link"
+            routerLink="/host"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            Dashboard
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link sidebar-link"
+            routerLink="/host/event/create"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            Host Event
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link sidebar-link"
+            routerLink="/host/event"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            View Events
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link sidebar-link"
+            routerLink="/host/profile"
+            routerLinkActive="active"
+          >
+            Profile
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <app-logout-button />
+    </div>
+  </div>
+</aside>

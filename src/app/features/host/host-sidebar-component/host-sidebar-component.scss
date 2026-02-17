@@ -1,0 +1,48 @@
+.host-sidebar-container {
+  width: 260px;
+  background-color: var(--bg-secondary);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+
+
+  .text-primary-custom {
+    color: var(--text-primary);
+  }
+
+  .sidebar-nav {
+    position: relative;
+  }
+
+  .sidebar-link {
+    position: relative;
+    color: var(--text-primary);
+    border-radius: 12px;
+    padding: 10px 18px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+
+  /* Hover */
+  .sidebar-link:hover {
+    background-color: var(--bg-base-tint);
+    color: var(--bg-primary);
+  }
+
+  /* Active state */
+  .sidebar-link.active {
+    color: var(--bg-primary);
+    font-weight: 600;
+  }
+
+  /* Pink side stick */
+  .sidebar-link.active::before {
+    content: "";
+    position: absolute;
+    left: -18px;   /* adjust depending on padding */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 28px;
+    background-color: var(--bg-primary);
+    border-radius: 6px;
+  }
+}

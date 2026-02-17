@@ -36,6 +36,10 @@ export class AuthStateService {
     this.username = null;
     this.role = null;
     this.isVerified = false;
+
+    localStorage.removeItem('username');
+    localStorage.removeItem('role');
+    localStorage.removeItem('isVerified');
   }
 
   loadAuthStateFromLocalStorage = (accessToken: string) => {

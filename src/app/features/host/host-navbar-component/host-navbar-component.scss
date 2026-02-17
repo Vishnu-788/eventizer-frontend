@@ -1,0 +1,56 @@
+.custom-host-topbar {
+  background-color: var(--bg-base-shade);
+  border-radius: 20px;
+  /* Search */
+
+  .search-wrapper {
+    width: 320px;
+  }
+
+  .search-input {
+    border-radius: 30px;
+    padding-left: 40px;
+    border: none;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .search-input:focus {
+    box-shadow: 0 0 0 2px var(--bg-primary-tint);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+  }
+
+  .profile-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--text-primary);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .user-name {
+    color: var(--text-primary);
+  }
+
+  .role-text {
+    margin-top: -0.3rem;
+  }
+}
+
+
+
