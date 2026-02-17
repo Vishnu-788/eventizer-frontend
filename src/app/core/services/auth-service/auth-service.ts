@@ -79,6 +79,10 @@ export class AuthService {
     this.stateService.setAccess(token)
   }
 
+  getRole() {
+    return this.stateService.getRole()
+  }
+
   logout(){
     return this.http.post(API_ENDPOINTS.LOGOUT, {}, { withCredentials: true })
       .pipe(

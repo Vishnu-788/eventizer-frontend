@@ -7,7 +7,6 @@ import {SignupComponent} from './features/auth/signup-component/signup-component
 import {AdminLayout} from './layouts/admin-layout/admin-layout';
 import {AdminDashboard} from './features/admin/admin-dashboard/admin-dashboard';
 import {HostLayout} from './layouts/host-layout/host-layout';
-import {HostDashboard} from './features/host/host-dashboard/host-dashboard';
 import {authGuard} from './core/guards/auth-guard/auth-guard';
 import {adminGuard} from './core/guards/auth-guard/admin-guard';
 import {hostGuard} from './core/guards/auth-guard/host-guard';
@@ -18,8 +17,11 @@ import {ViewBookingsComponent} from './features/user/view-bookings-component/vie
 import {ProfileComponent} from './features/user/profile-component/profile-component';
 import {PaymentProcessingComponent} from './features/user/payment-processing-component/payment-processing-component';
 import {PaymentCancelComponent} from './features/user/payment-cancel-component/payment-cancel-component';
-import {PaymentSuccessComponent} from './features/user/payment-success-component/payment-success-component';
 import {TicketsComponent} from './features/user/tickets-component/tickets-component';
+import {ManageEventsComponent} from './features/host/manage-events-component/manage-events-component';
+import {PaymentSuccessComponent} from './features/user/payment-success-component/payment-success-component';
+import {AnalyticsComponent} from './features/host/analytics-component/analytics-component';
+import {BookingsComponent} from './features/host/bookings-component/bookings-component';
 
 export const routes: Routes = [
   {
@@ -50,7 +52,7 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayout,
-    canActivate: [authGuard, adminGuard],
+    canActivate: [adminGuard],
     children: [
       { path: '', component: AdminDashboard }
     ]
@@ -58,9 +60,12 @@ export const routes: Routes = [
   {
     path: 'host',
     component: HostLayout,
-    canActivate: [authGuard, hostGuard],
+    canActivate: [hostGuard],
     children: [
-      { path: '', component: HostDashboard }
+      { path: '', component: ManageEventsComponent },
+      { path: 'analytics', component: AnalyticsComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'bookings', component: BookingsComponent }
     ]
   }
 ];

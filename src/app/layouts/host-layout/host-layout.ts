@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import {LogoutButton} from '../../features/shared/logout-button/logout-button';
+import {HostSidebarComponent} from '../../features/host/host-sidebar-component/host-sidebar-component';
+import {HostNavbarComponent} from '../../features/host/host-navbar-component/host-navbar-component';
+
 
 @Component({
   selector: 'app-host-layout',
   imports: [
     RouterOutlet,
-    LogoutButton
+    HostSidebarComponent,
+    HostNavbarComponent
   ],
   templateUrl: './host-layout.html',
   styleUrl: './host-layout.scss',

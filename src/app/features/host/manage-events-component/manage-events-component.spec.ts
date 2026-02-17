@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HostDashboard } from './host-dashboard';
+import { ManageEventsComponent } from './manage-events-component';
 
-describe('HostDashboard', () => {
-  let component: HostDashboard;
-  let fixture: ComponentFixture<HostDashboard>;
+describe('ManageEventsComponent', () => {
+  let component: ManageEventsComponent;
+  let fixture: ComponentFixture<ManageEventsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HostDashboard]
+      imports: [ManageEventsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HostDashboard);
+    fixture = TestBed.createComponent(ManageEventsComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

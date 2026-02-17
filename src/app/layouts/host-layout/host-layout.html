@@ -1,16 +1,19 @@
-<div class="container-fluid">
-  <div class="d-flex gap-2">
-    <aside class="col-3">
-       Host Sidebar goes in here.
-    </aside>
-    <div class="col-9">
+<div class="container-fluid vh-100 p-3">
+  <div class="d-flex gap-2 h-100">
+
+    <div style="width: 20%;">
+      <app-host-sidebar-component />
+    </div>
+
+    <div class="flex-fill d-flex flex-column gap-2 min-h-0">
       <header>
-        Host Navbar goes in here
-        <app-logout-button />
+        <app-host-navbar-component />
       </header>
-      <main>
+
+      <main class="flex-fill min-h-0 overflow-hidden">
         <router-outlet />
       </main>
     </div>
+
   </div>
 </div>

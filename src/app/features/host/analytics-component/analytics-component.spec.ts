@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewHostEventsComponent } from './view-host-events-component';
+import { AnalyticsComponent } from './analytics-component';
 
-describe('ViewHostEventsComponent', () => {
-  let component: ViewHostEventsComponent;
-  let fixture: ComponentFixture<ViewHostEventsComponent>;
+describe('AnalyticsComponent', () => {
+  let component: AnalyticsComponent;
+  let fixture: ComponentFixture<AnalyticsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ViewHostEventsComponent]
+      imports: [AnalyticsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ViewHostEventsComponent);
+    fixture = TestBed.createComponent(AnalyticsComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
