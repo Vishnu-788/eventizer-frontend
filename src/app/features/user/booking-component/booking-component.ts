@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {SeatModel} from '../../../core/models/seat.model';
 import {BookingService} from './booking-service';
 import {NgClass} from '@angular/common';
+import {UiState} from '../../../core/services/ui-state/ui-state';
 
 @Component({
   selector: 'app-booking-component',
@@ -17,6 +18,7 @@ export class BookingComponent {
 
   private activatedRoute = inject(ActivatedRoute)
   private bookingService = inject(BookingService)
+  private uiStateService = inject(UiState)
   readonly eventId = this.activatedRoute.snapshot.paramMap.get('id');
   selectedSeats = signal<SeatModel[]>([])
   eventSeats = signal<SeatModel[][] | null>(null)
@@ -77,6 +79,7 @@ export class BookingComponent {
   seats=seatIds[]
    */
   handleBooking() {
+    this.uiStateService.block()
     this.errorMessage.set(null)
     const seats: number[] = this.selectedSeats().map(s => s.id)
     this.bookingService.confirmBooking(
@@ -90,11 +93,13 @@ export class BookingComponent {
             window.location.href=paymentResponse.approval_url
           },
           error: err => {
+            this.uiStateService.unblock()
             this.errorMessage.set(err.detail)
           }
         })
       },
       error: err => {
+        this.uiStateService.unblock()
         this.errorMessage.set(err.detail)
       }
     })

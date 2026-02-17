@@ -1,1 +1,18 @@
-<p>payment-processing-component works!</p>
+<div class="wrapper">
+  <div class="helper-wrapper h-100 m-3 rounded-4">
+    @if (errorMessage()) {
+      <div class="d-flex flex-column align-items-center justify-content-center h-100">
+        <h3 class="text-danger">
+          Sorry our services are not available at the moment
+        </h3>
+      </div>
+    } @else {
+      <div class="d-flex flex-column align-items-center justify-content-center h-100">
+        <h3 class="mb-0">
+          Waiting for paypal confirmation...
+        </h3>
+        <small>This might take up to 10-20 seconds</small>
+      </div>
+    }
+  </div>
+</div>

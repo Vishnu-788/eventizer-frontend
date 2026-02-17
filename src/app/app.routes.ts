@@ -18,6 +18,8 @@ import {ViewBookingsComponent} from './features/user/view-bookings-component/vie
 import {ProfileComponent} from './features/user/profile-component/profile-component';
 import {PaymentProcessingComponent} from './features/user/payment-processing-component/payment-processing-component';
 import {PaymentCancelComponent} from './features/user/payment-cancel-component/payment-cancel-component';
+import {PaymentSuccessComponent} from './features/user/payment-success-component/payment-success-component';
+import {TicketsComponent} from './features/user/tickets-component/tickets-component';
 
 export const routes: Routes = [
   {
@@ -31,7 +33,9 @@ export const routes: Routes = [
       { path: 'bookings', component: ViewBookingsComponent },
       { path: 'profile', component: ProfileComponent},
       { path: 'payment/processing', component: PaymentProcessingComponent },
+      { path: 'payment/success', component: PaymentSuccessComponent },
       { path: 'payment/cancel', component: PaymentCancelComponent },
+      { path: 'tickets', component: TicketsComponent }
     ]
   },
   {
