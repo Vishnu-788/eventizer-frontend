@@ -17,12 +17,6 @@ interface SignupPayload {
   role: string;
 }
 
-interface LoginResponse {
-  access: string
-  username: string
-  role: string
-  verified: boolean
-}
 
 interface SignUpResponse {
   id: string
@@ -37,16 +31,16 @@ export class AuthService {
   private http = inject(HttpClient)
   private stateService = inject(AuthStateService)
 
-  login (payload: LoginPayload): Observable<LoginResponse> {
+  login (payload: LoginPayload): Observable<UserModel> {
     return this.http
-      .post<LoginResponse>(API_ENDPOINTS.LOGIN, payload, {withCredentials: true})
+      .post<UserModel>(API_ENDPOINTS.LOGIN, payload, {withCredentials: true})
       .pipe(
           tap(data => this.stateService.setCredentials(data))
       )
   }
 
   // Calling the login observable after successful registration to improve UX.
-  signup (data: SignupPayload): Observable<LoginResponse>  {
+  signup (data: SignupPayload): Observable<UserModel>  {
     return this.http
       .post<SignUpResponse>(API_ENDPOINTS.SIGNUP, data)
       .pipe(
@@ -97,9 +91,8 @@ export class AuthService {
   refreshToken(): Observable<any> {
     return this.http.post(API_ENDPOINTS.REFRESH_TOKEN, {}, { withCredentials: true });
   }
-
-  loadAuthStateFromLocalStorage(accessToken: string){
-    this.stateService.loadAuthStateFromLocalStorage(accessToken);
+  setCredentials(payload: UserModel){
+    this.stateService.setCredentials(payload)
   }
   clearCredentials() {
     this.stateService.removeCredentials()

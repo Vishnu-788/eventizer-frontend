@@ -18,7 +18,7 @@ export class SessionRestoreService {
 
     try {
       const response = await firstValueFrom(
-        this.http.post<any>(
+        this.http.post<UserModel>(
           API_ENDPOINTS.REFRESH_TOKEN,
           {},
           {withCredentials: true}
@@ -26,7 +26,7 @@ export class SessionRestoreService {
       );
       // Set global state
       console.log("Refresh token is there and the auth is setting. LOG FROM SESSION_RESTORE_SERVICE")
-      this.authService.loadAuthStateFromLocalStorage(response.access);
+      this.authService.setCredentials(response)
     } catch {
       // If refresh fails → clear state
       console.log("Refresh token is not there. LOG FROM SESSION RESTORE SERVICE")
