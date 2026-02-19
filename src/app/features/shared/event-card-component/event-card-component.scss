@@ -1,53 +1,78 @@
 .event-card {
-  width: 99%;
-  padding: 22px 26px;
-  border-radius: 20px;
-  background-color: var(--bg-base-pure);
+  background: var(--bg-base-pure);
   border: 1px solid var(--bg-base-shade);
-  transition: all 0.2s ease;
+  border-radius: 18px;
+  transition: all .2s ease;
+  min-height: 110px;
+
+  &:hover {
+    border-color: var(--bg-primary-tint);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+  }
+
+  /* LEFT SIDE */
+  .event-info {
+    min-width: 0; // prevents flex overflow
+
+    h5 {
+      color: var(--text-primary);
+      font-weight: 600;
+      letter-spacing: .2px;
+    }
+
+    .text-secondary {
+      span {
+        color: #6b7280;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  /* PRICE */
+  .text-primary {
+    color: var(--bg-primary) !important;
+  }
+
+  /* RIGHT SIDE */
+  .text-md-end {
+    min-width: 140px;
+  }
+
+  /* BUTTON */
+  .book-btn {
+    background: var(--bg-primary);
+    color: #fff;
+    border: none;
+    font-weight: 500;
+    transition: all .15s ease;
+
+    &:hover {
+      background: var(--bg-primary-tint);
+      color: #fff;
+    }
+
+    &:active {
+      background: var(--bg-primary-shade);
+      transform: scale(.98);
+    }
+  }
 }
 
-.event-card:hover {
-  background-color: var(--bg-secondary);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
-}
+/* MOBILE TWEAKS */
+@media (max-width: 768px) {
+  .event-card {
+    padding: 14px;
 
-.event-info h5 {
-  color: var(--text-primary);
-}
+    .text-md-end {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
 
-.event-info p {
-  color: #6c757d; // keep Bootstrap muted tone
-}
-
-/* Meta info */
-.event-info span {
-  color: var(--text-primary);
-  opacity: 0.8;
-}
-
-/* Price */
-.text-end .fw-bold {
-  color: var(--text-primary);
-}
-
-/* Seats text */
-.text-end .small {
-  color: #6c757d;
-}
-
-/* Button */
-.book-btn {
-  background-color: var(--bg-primary);
-  color: white;
-  border: none;
-  padding: 6px 18px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.book-btn:hover {
-  background-color: #c81fd6;
-  box-shadow: 0 4px 12px rgba(227, 43, 242, 0.3);
+    .book-btn {
+      padding: 6px 18px;
+    }
+  }
 }

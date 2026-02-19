@@ -2,7 +2,10 @@
   <div class="d-flex gap-2 flex-fill">
     <div class="list-events d-flex flex-column gap-2">
       @for (event of events(); track event.id) {
-        <app-event-card-component [event]="event"/>
+        <app-event-card-component
+          [event]="event"
+          [buttonClickNavigationUrl]="'event/'"
+        />
       }
     </div>
 <!--    <div class="llm-chat-interface flex-fill">-->

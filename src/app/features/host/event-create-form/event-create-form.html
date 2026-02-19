@@ -1,0 +1,120 @@
+<div class="event-create-wrapper d-flex flex-column h-100 rounded-4">
+  <form [formGroup]="eventForm" (ngSubmit)="handleSubmit()" class="event-form">
+
+    <h3 class="title">Create Event</h3>
+    @if(errorMessage()) {
+      <div class="error-box">
+        <p class="error-text mb-0">{{ errorMessage() }}</p>
+      </div>
+      @if(isSubmitting()){
+        <div class="form-overlay">
+          <div class="spinner"></div>
+          <p>Creating event...</p>
+        </div>
+      }
+    }
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" formControlName="e_title"
+               [class.invalid]="e_title?.invalid && e_title?.touched">
+        <p class="error-text" [class.show]="e_title?.invalid && e_title?.touched">
+          This field is required
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>Category</label>
+        <input type="text" formControlName="e_category"
+               [class.invalid]="e_category?.invalid && e_category?.touched">
+        <p class="error-text" [class.show]="e_category?.invalid && e_category?.touched">
+          This field is required
+        </p>
+      </div>
+
+
+      <div class="form-group full">
+        <label>Description</label>
+        <textarea rows="6" formControlName="e_description"
+                  [class.invalid]="e_description?.invalid && e_description?.touched"></textarea>
+        <p class="error-text" [class.show]="e_description?.invalid && e_description?.touched">
+          This field is required
+        </p>
+      </div>
+
+
+      <div class="form-group">
+        <label>Venue</label>
+        <input type="text" formControlName="e_venue"
+               [class.invalid]="e_venue?.invalid && e_venue?.touched">
+        <p class="error-text" [class.show]="e_venue?.invalid && e_venue?.touched">
+          This field is required
+        </p>
+      </div>
+
+
+      <div class="form-group">
+        <label>Event Date</label>
+        <input type="date" formControlName="e_date"
+               [class.invalid]="e_date?.invalid && e_date?.touched">
+        <p class="error-text" [class.show]="e_date?.invalid && e_date?.touched">
+          This field is required
+        </p>
+      </div>
+
+
+      <div class="form-group">
+        <label>Start Time</label>
+        <input type="time" formControlName="e_start_time"
+               [class.invalid]="e_start_time?.invalid && e_start_time?.touched">
+        <p class="error-text" [class.show]="e_start_time?.invalid && e_start_time?.touched">
+          This field is required
+        </p>
+      </div>
+
+
+      <div class="form-group">
+        <label>End Time</label>
+        <input type="time" formControlName="e_end_time"
+               [class.invalid]="e_end_time?.invalid && e_end_time?.touched">
+        <p class="error-text" [class.show]="e_end_time?.invalid && e_end_time?.touched">
+          This field is required
+        </p>
+      </div>
+
+
+      <div class="form-group">
+        <label>Total Seats</label>
+        <input type="number" formControlName="total_seats"
+               [class.invalid]="total_seats?.invalid && total_seats?.touched">
+        <p class="error-text" [class.show]="total_seats?.invalid && total_seats?.touched">
+          This field is required
+        </p>
+      </div>
+
+
+      <div class="form-group">
+        <label>Price</label>
+        <input type="number" formControlName="price"
+               [class.invalid]="price?.invalid && price?.touched">
+        <p class="error-text" [class.show]="price?.invalid && price?.touched">
+          This field is required
+        </p>
+      </div>
+
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="isSubmitting()">
+      @if(!isSubmitting()){
+        Create Event
+      }
+      @else{
+        <span class="btn-spinner"></span>
+        Creating...
+      }
+    </button>
+
+
+  </form>
+</div>

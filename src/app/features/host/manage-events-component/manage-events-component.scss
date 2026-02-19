@@ -1,0 +1,42 @@
+.manage-event-wrapper {
+  background: var(--bg-base-shade);
+  height: 100%;
+  min-height: 0;
+
+  .helper-wrapper {
+    height: 100%;
+
+    .list-events {
+      width: 100%;
+      overflow-y: auto;
+      min-height: 0;
+    }
+
+    h3 {
+      color: var(--text-primary);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .add-event-btn {
+      background: var(--bg-primary);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 500;
+      transition: all .2s ease;
+      text-decoration: none;
+
+      &:hover {
+        background: var(--bg-primary-tint);
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        background: var(--bg-primary-shade);
+        transform: translateY(0);
+      }
+    }
+  }
+}

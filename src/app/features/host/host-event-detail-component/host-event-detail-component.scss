@@ -1,0 +1,11 @@
+.event-detail {
+  background-color: var(--bg-base-shade);
+  color: var(--text-primary);
+  overflow-y: auto;
+  .event-title {
+    h2 {
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+  }
+}

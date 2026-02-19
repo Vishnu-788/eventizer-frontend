@@ -1,36 +1,38 @@
-<div class="event-card d-flex justify-content-between align-items-center">
+<div class="event-card d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 p-3">
 
   <!-- Left -->
-  <div class="event-info">
+  <div class="event-info flex-grow-1">
 
-    <h5 class="mb-1 fw-semibold">
+    <h5 class="mb-1 fw-semibold text-truncate">
       {{ event().e_title }}
     </h5>
 
-    <p class="mb-2 text-muted small">
-      {{ event().e_description }}
-    </p>
+    <div class="d-flex flex-wrap gap-3 small text-secondary">
 
-    <div class="d-flex gap-4 small text-secondary">
-      <span>📍 {{ event().e_venue }}</span>
-      <span>📅 {{ event().e_date }}</span>
-      <span>⏰ {{ event().e_start_time }} - {{ event().e_end_time }}</span>
+      <span class="d-flex align-items-center gap-1">
+        📍 <span class="text-truncate">{{ event().e_venue }}</span>
+      </span>
+
+      <span class="d-flex align-items-center gap-1">
+        🏷 {{ event().e_category }}
+      </span>
+
+      <span class="d-flex align-items-center gap-1">
+        ⏰ {{ event().e_start_time }}
+      </span>
+
     </div>
 
   </div>
 
   <!-- Right -->
-  <div class="text-end">
+  <div class="text-md-end w-100 w-md-auto">
 
-    <div class="fw-bold fs-5 mb-2">
+    <div class="fw-bold fs-5 text-primary mb-2">
       ₹{{ event().price }}
     </div>
 
-    <div class="small text-muted mb-2">
-      {{ event().total_seats }} seats
-    </div>
-
-    <button class="btn btn-sm book-btn rounded-pill" (click)="handleClick()">
+    <button class="btn book-btn rounded-pill px-4" (click)="handleClick()">
       View
     </button>
 

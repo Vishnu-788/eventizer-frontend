@@ -22,6 +22,8 @@ import {ManageEventsComponent} from './features/host/manage-events-component/man
 import {PaymentSuccessComponent} from './features/user/payment-success-component/payment-success-component';
 import {AnalyticsComponent} from './features/host/analytics-component/analytics-component';
 import {BookingsComponent} from './features/host/bookings-component/bookings-component';
+import {HostEventDetailComponent} from './features/host/host-event-detail-component/host-event-detail-component';
+import {EventCreateForm} from './features/host/event-create-form/event-create-form';
 
 export const routes: Routes = [
   {
@@ -63,6 +65,8 @@ export const routes: Routes = [
     canActivate: [hostGuard],
     children: [
       { path: '', component: ManageEventsComponent },
+      { path: 'event/:id', component: HostEventDetailComponent},
+      { path: 'form', component: EventCreateForm},
       { path: 'analytics', component: AnalyticsComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'bookings', component: BookingsComponent }

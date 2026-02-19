@@ -1,1 +1,24 @@
-<p>manage-events-component works!</p>
+<div class="manage-event-wrapper rounded p-3">
+  <div class="helper-wrapper">
+    <div class="header rounded-4 d-flex justify-content-between align-items-center m-2">
+      <h3>Manage Events</h3>
+
+      <a routerLink="/host/form"
+        class="add-event-btn">
+        + Add Event
+      </a>
+    </div>
+    <div class="event-container">
+      <div class="list-events d-flex flex-column gap-2">
+        @for (event of events(); track event.id) {
+          <app-event-card-component
+            [buttonClickNavigationUrl]="'host/event/'"
+            [event]="event"
+          />
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+
