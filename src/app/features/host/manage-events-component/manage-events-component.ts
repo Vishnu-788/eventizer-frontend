@@ -4,6 +4,7 @@ import {EventCardComponent} from '../../shared/event-card-component/event-card-c
 import {CityEvent} from '../../../core/models/event.model';
 import {EventService} from '../../../core/services/event-services/event-service';
 import {RouterLink} from '@angular/router';
+import {NavbarTitleService} from '../../../core/services/state-service/navbar-title-service';
 
 @Component({
   selector: 'app-manage-events-component',
@@ -17,9 +18,11 @@ import {RouterLink} from '@angular/router';
 export class ManageEventsComponent {
   private eventService = inject(EventService)
   private errorMessage = signal<string | null>(null)
+  private navbarService = inject(NavbarTitleService)
   events = signal<CityEvent[] | null>(null);
 
   ngOnInit() {
+    this.navbarService.setTitle('Events')
     this.loadEvents()
   }
 

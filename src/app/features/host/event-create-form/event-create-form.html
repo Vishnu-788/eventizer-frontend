@@ -1,7 +1,5 @@
 <div class="event-create-wrapper d-flex flex-column h-100 rounded-4">
   <form [formGroup]="eventForm" (ngSubmit)="handleSubmit()" class="event-form">
-
-    <h3 class="title">Create Event</h3>
     @if(errorMessage()) {
       <div class="error-box">
         <p class="error-text mb-0">{{ errorMessage() }}</p>

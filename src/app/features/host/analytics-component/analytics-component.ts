@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {NavbarTitleService} from '../../../core/services/state-service/navbar-title-service';
 
 @Component({
   selector: 'app-analytics-component',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './analytics-component.scss',
 })
 export class AnalyticsComponent {
-
+  navbarService = inject(NavbarTitleService)
+  ngOnInit() { this.navbarService.setTitle('Analytics') }
 }

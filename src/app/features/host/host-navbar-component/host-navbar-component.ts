@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
+import {NavbarTitleService} from '../../../core/services/state-service/navbar-title-service';
 
 @Component({
   selector: 'app-host-navbar-component',
@@ -10,5 +11,6 @@ import {NgOptimizedImage} from '@angular/common';
   styleUrl: './host-navbar-component.scss',
 })
 export class HostNavbarComponent {
-
+  navbarService = inject(NavbarTitleService)
+  title = this.navbarService.title
 }

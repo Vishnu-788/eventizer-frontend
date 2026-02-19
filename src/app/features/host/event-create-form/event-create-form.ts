@@ -2,6 +2,7 @@ import {Component, inject, signal} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {EventService} from '../../../core/services/event-services/event-service';
 import {EventPayload} from '../../../core/models/event.model';
+import {NavbarTitleService} from '../../../core/services/state-service/navbar-title-service';
 
 @Component({
   selector: 'app-event-create-form',
@@ -13,8 +14,11 @@ import {EventPayload} from '../../../core/models/event.model';
 })
 export class EventCreateForm {
   private eventService = inject(EventService);
+  private navbarService = inject(NavbarTitleService)
   protected errorMessage = signal<string | null>(null)
   isSubmitting = signal(false)
+
+  ngOnInit() { this.navbarService.setTitle('Create Event')}
 
   eventForm = new FormGroup({
     e_title: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
