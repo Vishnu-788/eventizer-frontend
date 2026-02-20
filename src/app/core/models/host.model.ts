@@ -1,14 +1,15 @@
-export interface HostDetail {
-  user: number;
-
+interface User {
   username: string;
   first_name: string;
   last_name: string;
   email: string;
+  created_at: string; // ISO date string from backend
+}
 
+export interface HostModel {
+  user: User;
   company_name: string;
-  company_contact_no: string;
   company_contact_email: string;
-
-  status: 'pending' | 'approved' | 'rejected' | string;
+  company_contact_no: number;
+  status: string;
 }

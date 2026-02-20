@@ -24,6 +24,8 @@ import {AnalyticsComponent} from './features/host/analytics-component/analytics-
 import {BookingsComponent} from './features/host/bookings-component/bookings-component';
 import {HostEventDetailComponent} from './features/host/host-event-detail-component/host-event-detail-component';
 import {EventCreateForm} from './features/host/event-create-form/event-create-form';
+import {HostProfileComponent} from './features/host/host-profile-component/host-profile-component';
+import {HostEditForm} from './features/host/host-edit-form/host-edit-form';
 
 export const routes: Routes = [
   {
@@ -68,7 +70,8 @@ export const routes: Routes = [
       { path: 'event/:id', component: HostEventDetailComponent},
       { path: 'form', component: EventCreateForm},
       { path: 'analytics', component: AnalyticsComponent },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profile', component: HostProfileComponent },
+      { path: 'profile/edit', component: HostEditForm },
       { path: 'bookings', component: BookingsComponent }
     ]
   }

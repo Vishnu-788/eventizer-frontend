@@ -3,7 +3,6 @@
   background-color: var(--bg-secondary);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 
-
   .text-primary-custom {
     color: var(--text-primary);
   }
@@ -12,6 +11,8 @@
     position: relative;
   }
 
+
+
   .sidebar-link {
     position: relative;
     color: var(--text-primary);
@@ -19,6 +20,9 @@
     padding: 10px 18px;
     transition: all 0.2s ease;
     font-weight: 500;
+    .sidebar-icon {
+      object-fit: contain;
+    }
   }
 
   /* Hover */

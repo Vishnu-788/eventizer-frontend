@@ -8,44 +8,73 @@
       <ul class="nav flex-column gap-2 sidebar-nav">
         <li class="nav-item">
           <a
-            class="nav-link sidebar-link"
+            class="nav-link sidebar-link d-flex align-items-center"
             routerLink="/host"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}"
           >
-            Manage Events
+            <img
+              class="sidebar-icon me-2"
+              ngSrc="/icons/event.png"
+              alt="Events Icon"
+              width="15"
+              height="15"
+            />
+            <span>Manage Events</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a
-            class="nav-link sidebar-link"
+            class="nav-link sidebar-link d-flex align-items-center"
             routerLink="/host/analytics"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}"
           >
-            Analytics
+            <img
+              class="sidebar-icon me-2"
+              ngSrc="/icons/analytics.png"
+              alt="Analytics Icon"
+              width="15"
+              height="15"
+            />
+            <span>Analytics</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a
-            class="nav-link sidebar-link"
+            class="nav-link sidebar-link d-flex align-items-center"
+            routerLink="/host/bookings"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            <img
+              class="sidebar-icon me-2"
+              ngSrc="/icons/online-booking.png"
+              alt="Booking Icon"
+              width="15"
+              height="15"
+            />
+            <span>Bookings</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link sidebar-link d-flex align-items-center"
             routerLink="/host/profile"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}"
           >
-            Profile
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a
-            class="nav-link sidebar-link"
-            routerLink="/host/bookings"
-            routerLinkActive="active"
-          >
-            Bookings
+            <img
+              class="sidebar-icon me-2"
+              ngSrc="/icons/profile.png"
+              alt="Profile Icon"
+              width="15"
+              height="15"
+            />
+            <span>Profile</span>
           </a>
         </li>
       </ul>

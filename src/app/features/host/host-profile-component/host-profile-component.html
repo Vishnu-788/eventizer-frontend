@@ -1,1 +1,44 @@
-<p>host-profile-component works!</p>
+<div class="profile h-100 d-flex flex-column">
+
+  <div class="header px-5 py-4">
+    <div class="title">
+      <h2>{{host()?.company_name}}</h2>
+      <span class="status" [class.approved]="host()?.status === 'APPROVED'">
+        {{host()?.status}}
+      </span>
+    </div>
+
+    <a
+      class="btn btn-edit"
+      [routerLink]="['/host/profile/edit']"
+      [state]="{ host: host() }">
+      Edit Profile
+    </a>
+  </div>
+
+  <div class="content container-fluid px-5 py-4 flex-grow-1">
+
+    <div class="info-grid">
+      <div class="info-item">
+        <label>Name</label>
+        <span>{{host()?.user?.first_name}} {{host()?.user?.last_name}}</span>
+      </div>
+
+      <div class="info-item">
+        <label>Email</label>
+        <span>{{host()?.user?.email}}</span>
+      </div>
+
+      <div class="info-item">
+        <label>Company Email</label>
+        <span>{{host()?.company_contact_email}}</span>
+      </div>
+
+      <div class="info-item">
+        <label>Phone</label>
+        <span>{{host()?.company_contact_no}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
