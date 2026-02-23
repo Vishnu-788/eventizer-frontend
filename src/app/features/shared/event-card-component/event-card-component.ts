@@ -10,10 +10,10 @@ import {Router} from '@angular/router';
 })
 export class EventCardComponent {
   private router = inject(Router)
-  buttonClickNavigationUrl = input<string>()
+  componentNavigationUrl = input<string>()
   event = input.required<CityEvent>()
   handleClick() {
     const id = this.event().id
-    this.router.navigate([this.buttonClickNavigationUrl(), id])
+    this.router.navigate([this.componentNavigationUrl(), id])
   }
 }

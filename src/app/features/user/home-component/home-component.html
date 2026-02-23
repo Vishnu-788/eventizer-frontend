@@ -4,7 +4,7 @@
       @for (event of events(); track event.id) {
         <app-event-card-component
           [event]="event"
-          [buttonClickNavigationUrl]="'event/'"
+          [componentNavigationUrl]="'event/'"
         />
       }
     </div>

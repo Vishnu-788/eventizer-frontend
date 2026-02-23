@@ -12,7 +12,7 @@
       <div class="list-events d-flex flex-column gap-2">
         @for (event of events(); track event.id) {
           <app-event-card-component
-            [buttonClickNavigationUrl]="'host/event/'"
+            [componentNavigationUrl]="'host/event/'"
             [event]="event"
           />
         }

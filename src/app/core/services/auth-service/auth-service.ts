@@ -51,54 +51,26 @@ export class AuthService {
       )
   }
 
-  // Checks whether the user is logged in or not.
-  isAuthenticated = (): boolean => {
-    return this.stateService.getUsername() !== null;
-  }
-
-  isHost = (): boolean => {
-    return this.isAuthenticated() && this.stateService.getRole() === 'host'
-  }
-
-  isVerified = (): boolean => {
-    return this.stateService.verified()
-  }
-
-  isAdmin = (): boolean => {
-    return this.isAuthenticated() && this.stateService.getRole() === 'admin'
-  }
-
-  getUsername() {
-    return this.stateService.getUsername()
-  }
-
-  getAccessToken(){
-    return this.stateService.getAccess()
-  }
-  setAccessToken = (token: string) => {
-    this.stateService.setAccess(token)
-  }
-
-  getRole() {
-    return this.stateService.getRole()
-  }
-
   logout(){
     return this.http.post(API_ENDPOINTS.LOGOUT, {}, { withCredentials: true })
       .pipe(
-      finalize(() => {
-        this.clearCredentials()
-      })
-    )
+        finalize(() => {
+          this.clearCredentials()
+        })
+      )
   }
 
-  refreshToken(): Observable<any> {
-    return this.http.post(API_ENDPOINTS.REFRESH_TOKEN, {}, { withCredentials: true });
-  }
-  setCredentials(payload: UserModel){
-    this.stateService.setCredentials(payload)
-  }
-  clearCredentials() {
-    this.stateService.removeCredentials()
-  }
+  // Checks whether the user is logged in or not.
+  isAuthenticated = (): boolean => {return this.stateService.getUsername() !== null;}
+  isHost = (): boolean => {return this.isAuthenticated() && this.stateService.getRole() === 'host'}
+  isVerified = (): boolean => {return this.stateService.verified()}
+  isAdmin = (): boolean => {return this.isAuthenticated() && this.stateService.getRole() === 'admin'}
+  getUsername() {return this.stateService.getUsername()}
+  getAccessToken(){return this.stateService.getAccess()}
+  setAccessToken(token: string){this.stateService.setAccess(token)}
+  getFullName() {return (this.stateService.getFirstName() + ' ' + this.stateService.getLastName())}
+  getRole() {return this.stateService.getRole()}
+  refreshToken(): Observable<any> {return this.http.post(API_ENDPOINTS.REFRESH_TOKEN, {}, { withCredentials: true });}
+  setCredentials(payload: UserModel){this.stateService.setCredentials(payload)}
+  clearCredentials() {this.stateService.removeCredentials()}
 }

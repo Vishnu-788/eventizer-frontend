@@ -1,41 +1,25 @@
-<div class="event-card d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 p-3">
+<div
+  class="event-card rounded-4 p-4"
+  (click)="handleClick()"
+>
+  <div class="event-header d-flex justify-content-between align-items-start">
+    <div>
+      <h2>{{ event().e_title }}</h2>
+      <div class="event-meta mt-2">
+        <div class="meta-item">
+          <i class="bi bi-clock"></i>
+          <span>{{ event().e_start_time }}</span>
+        </div>
 
-  <!-- Left -->
-  <div class="event-info flex-grow-1">
-
-    <h5 class="mb-1 fw-semibold text-truncate">
-      {{ event().e_title }}
-    </h5>
-
-    <div class="d-flex flex-wrap gap-3 small text-secondary">
-
-      <span class="d-flex align-items-center gap-1">
-        📍 <span class="text-truncate">{{ event().e_venue }}</span>
-      </span>
-
-      <span class="d-flex align-items-center gap-1">
-        🏷 {{ event().e_category }}
-      </span>
-
-      <span class="d-flex align-items-center gap-1">
-        ⏰ {{ event().e_start_time }}
-      </span>
-
+        <div class="meta-item">
+          <i class="bi bi-geo-alt"></i>
+          <span>{{ event().e_venue }}</span>
+        </div>
+      </div>
     </div>
 
+    <span class="category-badge">
+      {{ event().e_category }}
+    </span>
   </div>
-
-  <!-- Right -->
-  <div class="text-md-end w-100 w-md-auto">
-
-    <div class="fw-bold fs-5 text-primary mb-2">
-      ₹{{ event().price }}
-    </div>
-
-    <button class="btn book-btn rounded-pill px-4" (click)="handleClick()">
-      View
-    </button>
-
-  </div>
-
 </div>

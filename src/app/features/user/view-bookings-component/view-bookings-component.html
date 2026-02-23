@@ -1,1 +1,31 @@
-<p>view-bookings-component works!</p>
+<div class="view-bookings-container h-100 rounded-4 px-2 py-3">
+  @for (booking of bookings(); track booking.id) {
+    <div class="booking-card rounded-4 p-3 mb-3">
+
+      <div class="card-top">
+        <h4 class="event">{{ booking.event_name }}</h4>
+        <span class="status" [class]="booking.booking_status">
+          {{ booking.booking_status }}
+        </span>
+      </div>
+
+      <div class="card-middle">
+        <div class="user">{{ booking.username }}</div>
+        <div class="email">{{ booking.email }}</div>
+      </div>
+
+      <div class="card-bottom">
+        <div class="info">
+          <span class="label">Seats</span>
+          <span class="value">{{ booking.seat_count }}</span>
+        </div>
+
+        <div class="info">
+          <span class="label">Amount</span>
+          <span class="value">₹{{ booking.total_amount }}</span>
+        </div>
+      </div>
+
+    </div>
+  }
+</div>

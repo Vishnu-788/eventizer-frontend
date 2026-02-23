@@ -3,6 +3,13 @@
   border-radius: 20px;
 }
 
+.title {
+  color: var(--text-primary);
+  h3 {
+    font-size: 2rem;
+    font-weight: 900;
+  }
+}
 /* Search */
 
 .search-wrapper {
