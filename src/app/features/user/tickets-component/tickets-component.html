@@ -1,5 +1,11 @@
-<div class="wrapper">
-  <div class="helper-wrapper">
-
-  </div>
+<div class="ticket-container d-flex flex-column align-items-center h-100 rounded-4 px-2 py-4">
+  @for (ticket of tickets(); track ticket.id) {
+    <div class="ticket-card d-flex">
+      <div class="ticket-left d-flex flex-column align-items-center justify-content-center">
+        <h3>Ticket No</h3>
+        <h2>{{ticket.id}}</h2>
+      </div>
+      <div class="ticket-right"></div>
+    </div>
+  }
 </div>

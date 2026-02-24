@@ -1,5 +1,88 @@
-<div class="wrapper h-100">
-  <div class="helper-wrapper rounded-3 m-3 h-100">
-    <h2>Profile</h2>
+<div class="user-profile-container rounded-4 h-100 p-4">
+  <header>
+    <h1>Manage Your Profile</h1>
+  </header>
+  <form [formGroup]="profileForm" (ngSubmit)="handleSubmit()" class="w-100">
+    <div class="d-flex gap-2 w-100 mt-4">
+      <div class="username w-50">
+        <label for="username">Username</label><br>
+        <input
+          id="username"
+          type="text"
+          formControlName="username"
+          class="form-control rounded-4"
+        >
+      </div>
+      <div class="w-50">
+        <label for="first_name">First Name</label><br>
+        <input
+          id="first_name"
+          type="text"
+          formControlName="first_name"
+          class="form-control rounded-4"
+        >
+      </div>
+    </div>
+    <div class="d-flex gap-2 w-100 mt-4">
+      <div class="email w-50">
+        <label for="email">Email</label><br>
+        <input
+          id="username"
+          type="email"
+          formControlName="email"
+          class="form-control rounded-4"
+        >
+      </div>
+      <div class="w-50">
+        <label>Last name</label><br>
+        <input
+          id="email"
+          type="text"
+          formControlName="last_name"
+          class="form-control rounded-4"
+        >
+      </div>
+    </div>
+    <div class="d-flex gap-3 w-100 mt-4 info-row">
+
+      <!-- ROLE -->
+      <div class="info-box w-50">
+        <label>Role</label>
+        <div class="info-value role">
+          <span class="dot"></span>
+          {{ profileData()?.role || 'User' }}
+        </div>
+      </div>
+
+      <!-- VERIFIED -->
+      <div class="info-box w-50">
+        <label>Verified Status</label>
+        <div class="info-value verified"
+             [class.active]="profileData()?.verified">
+
+          <span class="dot"></span>
+          {{ profileData()?.verified ? 'Verified' : 'Not Verified' }}
+        </div>
+      </div>
+
+    </div>
+    @if (editable()) {
+      <div class="form-actions mt-auto pt-4 d-flex">
+        <button type="submit" class="btn btn-primary ms-auto">
+          Save Changes
+        </button>
+      </div>
+    }
+  </form>
+  <div class="form-actions mt-auto pt-4 d-flex">
+    @if (!editable()) {
+      <button (click)="toggleEdit()" type="button" class="btn btn-primary rounded-circle icon-btn ms-auto">
+        <img
+          src="/icons/pencil.svg"
+          alt="edit"
+          class="icon-img"
+        />
+      </button>
+    }
   </div>
 </div>
