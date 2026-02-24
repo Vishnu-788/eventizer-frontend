@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {finalize, Observable, switchMap, tap} from 'rxjs';
 import {API_ENDPOINTS} from '../../constants/api-endpoints';
 import {AuthStateService} from '../state-service/auth-state-service';
+import {UserModel} from '../../models/user.model';
 
 // Accepting null because of passing form data the type is partial {string | null}
 interface LoginPayload {

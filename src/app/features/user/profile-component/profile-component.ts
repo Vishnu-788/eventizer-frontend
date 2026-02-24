@@ -3,13 +3,11 @@ import {NavbarTitleService} from '../../../core/services/state-service/navbar-ti
 import {UserProfile} from '../../../core/models/user.model';
 import {ProfileService} from '../../../core/services/profile-services/profile-service';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-profile-component',
   imports: [
     ReactiveFormsModule,
-    NgOptimizedImage
   ],
   templateUrl: './profile-component.html',
   styleUrl: './profile-component.scss',

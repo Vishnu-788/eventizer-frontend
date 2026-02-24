@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import {AuthService} from '../auth-service/auth-service';
 import {API_ENDPOINTS} from '../../constants/api-endpoints';
+import {UserModel} from '../../models/user.model';
 
 @Injectable({
   providedIn: 'root',

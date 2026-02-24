@@ -1,6 +1,7 @@
 import {Component, inject, signal} from '@angular/core';
 import {PaymentService} from './payment-service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {NavbarTitleService} from '../../../core/services/state-service/navbar-title-service';
 
 @Component({
   selector: 'app-payment-processing-component',
@@ -13,9 +14,10 @@ export class PaymentProcessingComponent {
   paymentService = inject(PaymentService);
   activatedRoute = inject(ActivatedRoute);
   router = inject(Router);
+  private titleService = inject(NavbarTitleService)
   errorMessage = signal<string | null>(null);
   ngOnInit(): void {
-
+    this.titleService.setTitle("Payments");
     const orderId = this.activatedRoute.snapshot.queryParamMap.get('token');
 
 

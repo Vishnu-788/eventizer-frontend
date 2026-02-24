@@ -4,6 +4,7 @@ import {SeatModel} from '../../../core/models/seat.model';
 import {BookingService} from './booking-service';
 import {NgClass} from '@angular/common';
 import {UiState} from '../../../core/services/ui-state/ui-state';
+import {NavbarTitleService} from '../../../core/services/state-service/navbar-title-service';
 
 @Component({
   selector: 'app-booking-component',
@@ -19,6 +20,7 @@ export class BookingComponent {
   private activatedRoute = inject(ActivatedRoute)
   private bookingService = inject(BookingService)
   private uiStateService = inject(UiState)
+  private titleService = inject(NavbarTitleService)
   readonly eventId = this.activatedRoute.snapshot.paramMap.get('id');
   selectedSeats = signal<SeatModel[]>([])
   eventSeats = signal<SeatModel[][] | null>(null)
@@ -36,6 +38,7 @@ export class BookingComponent {
 
 
   ngOnInit() {
+    this.titleService.setTitle("Book an Event")
     console.log("Booking seats.")
     this.initializeSeats()
   }
