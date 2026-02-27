@@ -16,6 +16,7 @@ export const API_ENDPOINTS = {
   MANAGE_USER_PROFILE: `${BASE}/auth/user/`,
   GET_USER_BOOKINGS: `${BASE}/bookings/user/list/`,
   HOST_DETAIL: `${BASE}/hosts/me/`,
+  HOST_NOT_VERIFIED: `${BASE}/hosts/me/not-verified/`,
   EVENT_CREATE: `${BASE}/events/host/create/`,
   HOST_EVENT_LIST: `${BASE}/events/host/list/`,
   HOST_EVENT_DETAIL: `${BASE}/events/host/detail/`,

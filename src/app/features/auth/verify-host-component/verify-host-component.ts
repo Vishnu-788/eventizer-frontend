@@ -2,15 +2,10 @@ import {Component, inject, signal} from '@angular/core';
 import {HostService} from './host-service';
 import {ActivatedRoute } from '@angular/router';
 // import {HostDetail} from '../../../core/models/host.model';
-import {VerificationPendingComponent} from '../verification-pending-component/verification-pending-component';
-import {VerificationForm} from '../verification-form/verification-form';
 
 @Component({
   selector: 'app-verify-host-component',
-  imports: [
-    VerificationPendingComponent,
-    VerificationForm
-  ],
+  imports: [],
   templateUrl: './verify-host-component.html',
   styleUrl: './verify-host-component.scss',
 })
@@ -21,13 +16,12 @@ export class VerifyHostComponent {
   showVerificationForm = signal(false)
   errorMessage = signal<string | null>(null)
   ngOnInit() {
-     const username = this.activatedRoute.snapshot.paramMap.get('username')
-    this.loadHost(username)
+     // const username = this.activatedRoute.snapshot.paramMap.get('username')
+    this.loadHost()
   }
 
-  private loadHost(username: string | null) {
-    if(username == null) return;
-    this.hostService.getHostFullDetails(username)
+  private loadHost() {
+    this.hostService.getHostFullDetails()
     .subscribe({
       next: host => {
         // this.host.set(host);

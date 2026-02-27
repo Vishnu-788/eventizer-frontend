@@ -8,7 +8,7 @@ import {HostModel} from '../../../core/models/host.model';
 })
 export class HostService {
   private http = inject(HttpClient)
-  getHostFullDetails(username: string) {
-    return this.http.get<HostModel>(`${API_ENDPOINTS.HOST_DETAIL}${username}/`)
+  getHostFullDetails() {
+    return this.http.get<HostModel>(API_ENDPOINTS.HOST_NOT_VERIFIED)
   }
 }
