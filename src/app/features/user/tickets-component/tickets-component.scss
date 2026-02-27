@@ -1,5 +1,6 @@
 .ticket-container {
   background-color: var(--bg-base-shade);
+  overflow-y: auto;
   .ticket-card {
     width: 95%;
     height: 12rem;
@@ -46,6 +47,30 @@
     .ticket-right {
       width: 76%;
       height: 100%;
+      font-size: 0.95rem;
+
+      h4 {
+        font-size: 1.2rem;
+      }
+
+      .seat-list {
+        margin-top: 0.3rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+
+      .seat {
+        background: #ffffffaa;
+        padding: 0.15rem 0.45rem;
+        border-radius: 0.4rem;
+        font-weight: 600;
+        font-size: 0.8rem;
+      }
+
+      .time small {
+        opacity: 0.7;
+      }
     }
   }
 }

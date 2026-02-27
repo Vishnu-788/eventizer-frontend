@@ -2,10 +2,13 @@ import {Component, inject, signal} from '@angular/core';
 import {NavbarTitleService} from '../../../core/services/state-service/navbar-title-service';
 import {TicketResponse} from '../../../core/models/ticket.model';
 import {TicketService} from '../../../core/services/ticket-services/ticket-service';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-tickets-component',
-  imports: [],
+  imports: [
+    DatePipe
+  ],
   templateUrl: './tickets-component.html',
   styleUrl: './tickets-component.scss',
 })

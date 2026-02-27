@@ -24,7 +24,7 @@ export class BookingComponent {
   readonly eventId = this.activatedRoute.snapshot.paramMap.get('id');
   selectedSeats = signal<SeatModel[]>([])
   eventSeats = signal<SeatModel[][] | null>(null)
-  errorMessage = signal<string | null>("Error")
+  errorMessage = signal<string | null>(null)
   event_price: number | null = null
   totalPrice = computed(() =>
     this.selectedSeats().length * (this.event_price ?? 0)

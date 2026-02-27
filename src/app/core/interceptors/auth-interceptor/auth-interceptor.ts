@@ -35,6 +35,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(authReq).pipe(
     catchError((error: HttpErrorResponse) => {
+      console.log("Error caught at the Unauthorized ")
       const isTokenExpired = error.status === 401 && error.error?.error === 'access_token_expired';
       if (isTokenExpired) {
         return authService.refreshToken().pipe(
