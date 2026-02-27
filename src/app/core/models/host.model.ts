@@ -13,3 +13,9 @@ export interface HostModel {
   company_contact_no: number;
   status: string;
 }
+
+export interface HostCompanyPayload {
+  company_name: string;
+  company_contact_email: string;
+  company_contact_no: number;
+}

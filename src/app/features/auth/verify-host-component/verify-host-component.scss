@@ -1,6 +1,59 @@
 .verify-wrapper {
   background-color: var(--bg-base);
   .helper-wrapper {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-base);
+    .form-container {
+      background-color: var(--bg-secondary);
+      border-radius: 3rem;
+      height: 85%;
+      width: 85%;
+      color: var(--text-primary);
+      h1 {
+        font-weight: 800;
+        font-size: 3rem;
+      }
+      button {
+        width: 12rem;
+        height: 46px;
+        border-radius: 1rem;
+        border: none;
+        cursor: pointer;
+
+        font-weight: 600;
+        letter-spacing: 0.2px;
+
+        color: white;
+        background: linear-gradient(
+            135deg,
+            var(--bg-primary),
+            #c81dd8
+        );
+
+        box-shadow: 0 6px 18px rgba(227, 43, 242, 0.25);
+        transition: all 0.18s ease;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+
+        &:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 24px rgba(227, 43, 242, 0.35);
+        }
+
+        &:active:not(:disabled) {
+          transform: translateY(0px);
+          box-shadow: 0 4px 12px rgba(227, 43, 242, 0.25);
+        }
+
+        &:disabled {
+          background: #dcdcdc;
+          color: #8b8b8b;
+          cursor: not-allowed;
+          box-shadow: none;
+        }
+      }
+    }
   }
 }
