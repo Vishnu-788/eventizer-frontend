@@ -1,1 +1,35 @@
-<p>admin-sidebar-component works!</p>
+<aside class="d-flex h-100">
+  <div class="admin-sidebar-container d-flex flex-column rounded-4 flex-fill py-4 px-3">
+    <header class="mb-4">
+      <h4 class="fw-bold text-primary-custom text-center">Eventizer</h4>
+    </header>
+
+    <div class="items-container flex-grow-1">
+      <ul class="nav flex-column gap-2 sidebar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link sidebar-link"
+            routerLink="/admin"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            Manage Hosts
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link sidebar-link"
+            routerLink="/admin/view-requests"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            View Requests
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <app-logout-button />
+    </div>
+  </div>
+</aside>

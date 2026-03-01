@@ -28,6 +28,7 @@ import {HostProfileComponent} from './features/host/host-profile-component/host-
 import {HostEditForm} from './features/host/host-edit-form/host-edit-form';
 import {VerifyHostComponent} from './features/auth/verify-host-component/verify-host-component';
 import {verifiedHostGuard} from './core/guards/auth-guard/verified-host-guard';
+import {ViewHostsRequests} from './features/admin/view-hosts-requests/view-hosts-requests';
 
 export const routes: Routes = [
   {
@@ -61,7 +62,8 @@ export const routes: Routes = [
     component: AdminLayout,
     canActivate: [adminGuard],
     children: [
-      { path: '', component: AdminDashboard }
+      { path: '', component: AdminDashboard },
+      { path: 'view-requests', component: ViewHostsRequests }
     ]
   },
   {
