@@ -32,7 +32,84 @@
         </div>
       </div>
     } @else {
-      Host details in here.
+      <div class="verification-wrapper h-100 w-100">
+        <div class="verification-card">
+
+          <h2 class="verification-title">
+            Verification in progress, please wait
+          </h2>
+
+          <!-- ACCOUNT -->
+          <div class="verification-section">
+            <h4>Account Details</h4>
+
+            <div class="grid-row">
+              <div class="info-box">
+                <label>First Name</label>
+                <p>{{ host()?.user?.first_name }}</p>
+              </div>
+
+              <div class="info-box">
+                <label>Last Name</label>
+                <p>{{ host()?.user?.last_name }}</p>
+              </div>
+            </div>
+
+            <div class="grid-row">
+              <div class="info-box">
+                <label>Username</label>
+                <p>{{ host()?.user?.username }}</p>
+              </div>
+
+              <div class="info-box">
+                <label>Email</label>
+                <p>{{ host()?.user?.email }}</p>
+              </div>
+            </div>
+
+            <div class="grid-row single">
+              <div class="info-box">
+                <label>Joined</label>
+                <p>{{ host()?.user?.created_at | date:'mediumDate' }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMPANY -->
+          <div class="verification-section">
+            <h4>Company Details</h4>
+
+            <div class="grid-row">
+              <div class="info-box">
+                <label>Company Name</label>
+                <p>{{ host()?.company_name }}</p>
+              </div>
+
+              <div class="info-box">
+                <label>Contact Email</label>
+                <p>{{ host()?.company_contact_email }}</p>
+              </div>
+            </div>
+
+            <div class="grid-row">
+              <div class="info-box">
+                <label>Contact Number</label>
+                <p>{{ host()?.company_contact_no }}</p>
+              </div>
+
+              <div class="info-box status">
+                <label>Status</label>
+                <span class="status-pill">{{ host()?.status }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="logout-container">
+            <app-logout-button />
+          </div>
+
+        </div>
+      </div>
     }
   </div>
 </div>

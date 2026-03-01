@@ -2,12 +2,17 @@ import {Component, inject, signal} from '@angular/core';
 import {HostService} from './host-service';
 import {ActivatedRoute } from '@angular/router';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {HostModel} from '../../../core/models/host.model';
+import {DatePipe} from '@angular/common';
+import {LogoutButton} from '../../shared/logout-button/logout-button';
 // import {HostDetail} from '../../../core/models/host.model';
 
 @Component({
   selector: 'app-verify-host-component',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DatePipe,
+    LogoutButton
   ],
   templateUrl: './verify-host-component.html',
   styleUrl: './verify-host-component.scss',
@@ -15,7 +20,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 export class VerifyHostComponent {
   private hostService = inject(HostService);
   private activatedRoute = inject(ActivatedRoute)
-  // host = signal<HostDetail | null>(null)
+  host = signal<HostModel | null>(null)
   showVerificationForm = signal(false)
   errorMessage = signal<string | null>(null)
   formError = signal<string | null>(null)
@@ -30,7 +35,6 @@ export class VerifyHostComponent {
   })
 
   ngOnInit() {
-     // const username = this.activatedRoute.snapshot.paramMap.get('username')
     this.loadHost()
   }
 
@@ -49,8 +53,7 @@ export class VerifyHostComponent {
     this.hostService.getHostFullDetails()
     .subscribe({
       next: host => {
-        // this.host.set(host);
-        console.log("Successfully got the data" + host)
+        this.host.set(host)
        },
       error: err => {
         if(err.error.code === "verification_not_started") {

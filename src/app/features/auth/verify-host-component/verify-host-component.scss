@@ -55,5 +55,114 @@
         }
       }
     }
+
+    .verification-wrapper {
+      background: var(--bg-base);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.2rem;
+    }
+
+    .verification-card {
+      width: 100%;
+      max-width: 1000px;
+      background: var(--bg-base-pure);
+      border-radius: 1.2rem;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .verification-title {
+      text-align: center;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.4rem;
+    }
+
+    .verification-section {
+      margin-bottom: 1.4rem;
+
+      h4 {
+        color: var(--text-primary);
+        margin-bottom: 0.7rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+    }
+
+    /* GRID ROWS */
+    .grid-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .grid-row.single {
+      grid-template-columns: 1fr;
+    }
+
+    /* BOX STYLE */
+    .info-box {
+      background: var(--bg-base-shade);
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.7rem;
+      min-height: 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      label {
+        font-size: 0.72rem;
+        opacity: 0.65;
+      }
+
+      p {
+        margin: 0;
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: 0.92rem;
+      }
+    }
+
+    .status-pill {
+      background: var(--bg-primary-shade);
+      color: var(--bg-primary);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    .logout-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.2rem;
+    }
+
+    .logout-btn {
+      width: 11rem;
+      border-radius: 0.8rem;
+      color: white;
+      background: var(--bg-primary);
+      font-weight: 600;
+      border: none;
+      padding: 0.55rem 0;
+      transition: 0.2s ease;
+
+      &:hover {
+        background: var(--bg-primary-tint);
+        color: var(--text-primary);
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      .grid-row {
+        grid-template-columns: 1fr;
+      }
+    }
   }
 }
