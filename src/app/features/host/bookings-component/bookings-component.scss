@@ -1,7 +1,194 @@
 .bookings-container {
   background-color: var(--bg-base-shade);
+  height: 100%;
   .event-filter {
     background-color: var(--bg-base-pure);
-    height: 3rem;
+    height: 15%;
+    color: var(--text-primary);
+
+    .event-title {
+      font-weight: bold;
+    }
+
+    .event-dropdown {
+      position: relative;
+      display: inline-block;
+
+      .dropdown-btn {
+        background-color: var(--bg-base);
+        border: 1px solid var(--bg-primary);
+        border-radius: 1rem;
+        height: 2rem;
+        width: 14rem;
+
+      }
+
+      .arrow {
+        margin-left: .4rem;
+        transition: transform .2s ease;
+      }
+
+      .arrow.open {
+        transform: rotate(180deg);
+      }
+
+      .event-dropdown-menu {
+        position: absolute;
+        top: 120%;
+        right: 0;
+        list-style: none;
+        padding: .4rem;
+        margin: 0;
+        width: 23rem;
+        background: var(--bg-base);
+        border-radius: .8rem;
+        box-shadow: 0 10px 25px rgba(0,0,0,.25);
+
+        li {
+          padding: .45rem .6rem;
+          border-radius: .5rem;
+          cursor: pointer;
+          transition: background .15s;
+
+          &:hover {
+            background: var(--text-primary);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  .bookings-list {
+    overflow: auto;
+    height: 85%;
+
+    .booking-card {
+      min-height: 140px; // increased height, happy now
+      background-color: var(--bg-base-pure);
+      border: 1px solid #eceefd;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      box-shadow:
+        0 6px 20px rgba(0,0,0,0.05),
+        0 2px 6px rgba(0,0,0,0.04);
+
+      transition: transform .15s ease, box-shadow .15s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 12px 28px rgba(0,0,0,0.08),
+          0 4px 12px rgba(0,0,0,0.06);
+      }
+    }
+
+    /* user section */
+    .booking-user {
+      .name {
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--text-primary);
+      }
+
+      .email {
+        font-size: 0.85rem;
+        opacity: 0.7;
+      }
+
+      .time {
+        font-size: 0.8rem;
+        opacity: 0.6;
+        margin-top: 2px;
+      }
+    }
+
+    /* amount */
+    .amount {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2b2f55;
+    }
+
+    /* status badge */
+    .status {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .status.booked {
+      background: #e7f8ef;
+      color: #1f7a4d;
+    }
+
+    .status.pending {
+      background: #fff4da;
+      color: #8a6500;
+    }
+
+    /* seats */
+    .seats-container {
+      max-width: 65%;
+      gap: 0.4rem;
+      justify-content: flex-end;
+
+      .seats-container {
+        gap: 0.45rem;
+        align-items: center;
+      }
+
+      /* base seat chip */
+      .seat {
+        min-width: 2.4rem;
+        height: 2.2rem;
+        padding: 0 .55rem;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: .85rem;
+        font-weight: 700;
+        letter-spacing: .02em;
+
+        border-radius: .7rem;
+
+        background: #f4f6ff;
+        color: #2d3aa6;
+        border: 1px solid #dfe4ff;
+
+        position: relative;
+        cursor: default;
+
+        transition:
+          transform .15s ease,
+          box-shadow .15s ease,
+          background .15s ease;
+      }
+
+      /* hover feedback */
+      .seat:hover {
+        transform: translateY(-1px);
+        box-shadow:
+          0 4px 10px rgba(0,0,0,.10),
+          inset 0 1px 0 rgba(255,255,255,.8);
+      }
+
+      /* tiny inner highlight for depth */
+      .seat::after {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        border-radius: .6rem;
+        background: linear-gradient(to bottom, rgba(255,255,255,.55), transparent 60%);
+        pointer-events: none;
+      }
+    }
   }
 }

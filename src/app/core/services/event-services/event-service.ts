@@ -19,4 +19,8 @@ export class EventService {
   createEvent(payload: EventPayload) {
     return this.http.post(API_ENDPOINTS.EVENT_CREATE, payload)
   }
+
+  getHostEvents() {
+    return this.http.get(API_ENDPOINTS.HOST_EVENT_LIST)
+  }
 }

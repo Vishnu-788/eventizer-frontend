@@ -21,5 +21,6 @@ export const API_ENDPOINTS = {
   EVENT_CREATE: `${BASE}/events/host/create/`,
   HOST_EVENT_LIST: `${BASE}/events/host/list/`,
   HOST_EVENT_DETAIL: `${BASE}/events/host/detail/`,
+  GET_HOST_EVENT_RELATED_BOOKINGS: `${BASE}/bookings/host/view-booking/`, // Pass the event ID.
 
 }

@@ -1,15 +1,62 @@
-<div class="bookings-container rounded-4 h-100 p-2">
-  <div class="event-filter rounded-4 d-flex align-items-center justify-content-between px-3">
-    <div class="event-title">Event Name</div>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown button
+<div class="bookings-container d-flex flex-column rounded-4 p-2">
+  <div class="event-filter rounded-4 d-flex align-items-center justify-content-between px-3 mb-1">
+    <div class="event-title">{{selectedEvent()?.e_title}}</div>
+    <div class="event-dropdown">
+      <button
+        class="dropdown-btn"
+        type="button"
+        (click)="toggleDropdown()"
+        [attr.aria-expanded]="isOpen()"
+      >
+        Events
+        <span class="arrow" [class.open]="isOpen()">▾</span>
       </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
+
+      @if (isOpen()) {
+        <ul class="event-dropdown-menu">
+          @for (event of events() ; track event.id) {
+            <li (click)="select(event)">{{event.e_title}}</li>
+          }
+        </ul>
+      }
     </div>
+  </div>
+
+  <div class="bookings-list gap-2">
+    @for (booking of eventBookings(); track booking.id) {
+      <div class="booking-card w-100 rounded-4 my-2 p-4">
+
+        <div class="booking-top d-flex justify-content-between align-items-start">
+          <div class="booking-user">
+            <div class="name">{{ booking.username }}</div>
+            <div class="email">{{ booking.email }}</div>
+            <div class="time">
+              {{ booking.created_at | date:'medium' }}
+            </div>
+          </div>
+
+          <div
+            class="status"
+            [class.booked]="booking.booking_status === 'booked'"
+            [class.pending]="booking.booking_status === 'pending'"
+          >
+            {{ booking.booking_status }}
+          </div>
+        </div>
+
+        <div class="booking-middle d-flex justify-content-between align-items-center mt-3">
+          <div class="amount">
+            ₹ {{ booking.total_amount }}
+          </div>
+
+          <div class="seats-container d-flex flex-wrap justify-content-end">
+            @for (seat of booking.seats; track seat.id) {
+              <div class="seat">{{ seat.seat_no }}</div>
+            }
+          </div>
+        </div>
+
+      </div>
+    }
   </div>
 </div>
