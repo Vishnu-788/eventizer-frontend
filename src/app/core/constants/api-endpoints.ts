@@ -6,6 +6,7 @@ export const API_ENDPOINTS = {
   REFRESH_TOKEN: `${BASE}/auth/token/refresh/`,
   LOGOUT: `${BASE}/auth/logout/`,
 
+  // User routes
   GET_ALL_EVENTS: `${BASE}/events/`,
   GET_EVENT_DETAILS: `${BASE}/events/`, // Pass the event id via request params.
   GET_EVENT_SEATS: `${BASE}/events/seats/`, // Pass the event id via request params.
@@ -15,6 +16,8 @@ export const API_ENDPOINTS = {
   GET_TICKETS: `${BASE}/tickets/`,
   MANAGE_USER_PROFILE: `${BASE}/auth/user/`,
   GET_USER_BOOKINGS: `${BASE}/bookings/user/list/`,
+
+  // Host routes
   HOST_DETAIL: `${BASE}/hosts/me/`,
   HOST_CREATE : `${BASE}/hosts/create/`,
   HOST_NOT_VERIFIED: `${BASE}/hosts/me/not-verified/`,
@@ -23,4 +26,6 @@ export const API_ENDPOINTS = {
   HOST_EVENT_DETAIL: `${BASE}/events/host/detail/`,
   GET_HOST_EVENT_RELATED_BOOKINGS: `${BASE}/bookings/host/view-booking/`, // Pass the event ID.
 
+  // Admin routes
+  GET_HOSTS: `${BASE}/hosts/admin/`,
 }

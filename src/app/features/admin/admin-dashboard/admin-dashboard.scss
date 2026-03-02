@@ -1,0 +1,96 @@
+.custom-container {
+  background-color: var(--bg-base-shade);
+  overflow-y: auto;
+  .hosts-container {
+    padding: 1.5rem;
+  }
+
+  .host-card {
+    background: var(--bg-base-pure);
+    border-radius: 16px;
+    border: 1px solid var(--bg-base-shade);
+    overflow: hidden;
+    transition: 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  /* Header */
+  .card-header {
+    background: var(--bg-secondary);
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--bg-base-shade);
+
+    .username {
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 1.05rem;
+    }
+
+    .fullname {
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+  }
+
+  /* Status */
+  .status-badge {
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .status-badge.approved {
+    background: #e6f9f0;
+    color: #1f9d63;
+  }
+
+  .status-badge.rejected {
+    background: var(--error-bg);
+    color: var(--error-text);
+  }
+
+  .status-badge.pending {
+    background: var(--bg-primary-shade);
+    color: #8c1da3;
+  }
+
+  /* Body */
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.9rem;
+
+    label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      opacity: 0.6;
+    }
+
+    span {
+      font-weight: 600;
+      color: var(--text-primary);
+      word-break: break-word;
+    }
+  }
+
+  hr {
+    opacity: 0.1;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .host-card {
+      border-radius: 12px;
+    }
+  }
+}

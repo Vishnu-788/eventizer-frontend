@@ -1,1 +1,59 @@
-<p>admin-dashboard works!</p>
+<div class="custom-container h-100 rounded-4">
+  @for (host of hosts(); track host.user.username) {
+  <div class="w-100">
+    <div class="host-card shadow-sm">
+
+      <!-- Header -->
+      <div class="card-header d-flex justify-content-between align-items-start">
+        <div>
+          <div class="username">{{ host.user.username }}</div>
+          <div class="fullname">
+            {{ host.user.first_name }} {{ host.user.last_name }}
+          </div>
+        </div>
+
+        <span class="status-badge" [ngClass]="{
+                'approved': host.status === 'approved',
+                'rejected': host.status === 'rejected',
+                'pending': host.status === 'pending'
+              }">
+          {{ host.status | titlecase }}
+        </span>
+      </div>
+
+      <!-- Body -->
+      <div class="card-body">
+
+        <div class="info-item">
+          <label>User Email</label>
+          <span>{{ host.user.email }}</span>
+        </div>
+
+        <div class="info-item">
+          <label>Joined</label>
+          <span>{{ host.user.created_at | date:'mediumDate' }}</span>
+        </div>
+
+        <hr />
+
+        <div class="info-item">
+          <label>Company Name</label>
+          <span>{{ host.company_name }}</span>
+        </div>
+
+        <div class="info-item">
+          <label>Company Email</label>
+          <span>{{ host.company_contact_email }}</span>
+        </div>
+
+        <div class="info-item">
+          <label>Company Contact</label>
+          <span>{{ host.company_contact_no }}</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  }
+</div>
