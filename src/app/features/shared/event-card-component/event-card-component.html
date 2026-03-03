@@ -1,25 +1,27 @@
-<div
-  class="event-card rounded-4 p-4"
-  (click)="handleClick()"
->
-  <div class="event-header d-flex justify-content-between align-items-start">
-    <div>
-      <h2>{{ event().e_title }}</h2>
-      <div class="event-meta mt-2">
-        <div class="meta-item">
-          <i class="bi bi-clock"></i>
-          <span>{{ event().e_start_time }}</span>
-        </div>
-
-        <div class="meta-item">
-          <i class="bi bi-geo-alt"></i>
-          <span>{{ event().e_venue }}</span>
+<div (click)="handleClick()" class="event-card rounded-4 p-4 my-3">
+  <header>
+    <div class="event-header d-flex justify-content-between">
+      <h3>{{event().e_title}}</h3>
+      <span class="px-4 d-inline-flex align-items-center rounded-4">
+        {{event().e_category}}
+      </span>
+    </div>
+  </header>
+  <div class="event-body h-100 pb-4">
+    <div class="h-75 d-flex justify-content-between align-items-center">
+      <div>
+        <div>Event starts at: {{event().e_start_time}}</div>
+        <div>Events ends at: {{event().e_end_time}}</div>
+      </div>
+      <div>
+        <div class="price-container d-flex flex-column justify-content-center h-100 rounded-4 px-4">
+          <div>Per head</div>
+          <div>${{event().price}}</div>
         </div>
       </div>
     </div>
-
-    <span class="category-badge">
-      {{ event().e_category }}
-    </span>
+    <div>
+      Event Venue: {{event().e_venue}}
+    </div>
   </div>
 </div>

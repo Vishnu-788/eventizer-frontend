@@ -1,15 +1,8 @@
-<div class="home-wrapper rounded p-3">
-  <div class="d-flex gap-2 flex-fill">
-    <div class="list-events d-flex flex-column gap-2">
-      @for (event of events(); track event.id) {
-        <app-event-card-component
-          [event]="event"
-          [componentNavigationUrl]="'event/'"
-        />
-      }
-    </div>
-<!--    <div class="llm-chat-interface flex-fill">-->
-<!--      <app-llm-chat-component />-->
-<!--    </div>-->
-  </div>
+<div class="home-wrapper rounded-4 p-3">
+  @for (event of events(); track event.id) {
+    <app-event-card-component
+      [event]="event"
+      [componentNavigationUrl]="'event/'"
+    />
+  }
 </div>

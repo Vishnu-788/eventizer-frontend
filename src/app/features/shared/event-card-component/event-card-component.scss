@@ -1,54 +1,33 @@
 .event-card {
   background-color: var(--bg-base-pure);
+  height: 12rem;
   color: var(--text-primary);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
-  transition: all 0.25s ease;
-
-  border: 1px solid var(--bg-base-shade);
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(52, 67, 115, 0.08);
-    background-color: var(--bg-secondary);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    color: var(--bg-primary);
   }
 
   .event-header {
-
-    h2 {
+    h3 {
       font-weight: 700;
-      font-size: 1.8rem;
-      margin: 0;
     }
 
-    .category-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 0 1rem;
-      height: 2rem;
-      border-radius: 0.75rem;
-
-      background: var(--bg-primary-shade);
-      color: var(--text-primary);
+    span {
+      background-color: var(--bg-primary-shade);
+      font-size: 0.8rem;
       font-weight: 500;
-      font-size: 0.85rem;
     }
+  }
 
-    .event-meta {
-      display: flex;
-      gap: 1.5rem;
-
-      .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        font-size: 0.9rem;
-        color: var(--text-primary);
-
-        i {
-          font-size: 1rem;
-          opacity: 0.7;
-        }
-      }
+  .event-body {
+    .price-container {
+      background-color: var(--bg-secondary);
+      font-weight: 600;
+      transition: background-color 0.2s ease;
     }
   }
 }

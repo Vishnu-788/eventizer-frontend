@@ -2,9 +2,11 @@ export interface CityEvent {
   id: number;
   e_title: string;
   e_start_time: string;   // backend sends time string → keep string
+  e_end_time: string,
   e_category: string;
   price: number;
   e_venue: string;
+  e_date: string;
 }
 
 

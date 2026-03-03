@@ -1,22 +1,8 @@
 .home-wrapper {
   background-color: var(--bg-base-shade);
-  border-radius: 20px;
-
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 0; /* important */
-}
-
-.home-wrapper > .d-flex {
-  flex: 1;
-  min-height: 0; /* also important */
-}
-
-.list-events {
-  width: 100%;
   overflow-y: auto;
-  min-height: 0;
+  height: 100%;
 }
+
 
 
