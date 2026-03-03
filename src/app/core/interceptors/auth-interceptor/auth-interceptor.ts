@@ -34,9 +34,15 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   }
 
   return next(authReq).pipe(
-    catchError((error: HttpErrorResponse) => {
-      console.log("Error caught at the Unauthorized ")
-      const isTokenExpired = error.status === 401 && error.error?.error === 'access_token_expired';
+    catchError((httpError: HttpErrorResponse) => {
+
+      console.log(`Error caught at Interceptor Pipe. Error: ${httpError}`);
+      console.log(`Error status: ${httpError.status}`)
+      console.log(`Error detail: ${httpError.error.detail}`)
+      console.log(`Error code: ${httpError.error.code}`)
+
+
+      const isTokenExpired = httpError.status === 401 && httpError.error.code === 'token_not_valid';
       console.log("Is token expired: " + isTokenExpired);
       if (isTokenExpired) {
         console.log("Entered isTokenEcpired if block")
@@ -58,7 +64,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
           })
         );
       }
-      return throwError(() => error);
+      return throwError(() => httpError);
     })
   );
 };
