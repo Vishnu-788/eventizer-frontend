@@ -1,24 +1,14 @@
-<div class="manage-event-wrapper rounded p-3">
-  <div class="helper-wrapper">
-    <div class="header rounded-4 d-flex justify-content-between align-items-center m-2">
-      <h3>Manage Events</h3>
-
-      <a routerLink="/host/form"
-        class="add-event-btn">
-        + Add Event
-      </a>
-    </div>
-    <div class="event-container">
-      <div class="list-events d-flex flex-column gap-2">
-        @for (event of events(); track event.id) {
-          <app-event-card-component
-            [componentNavigationUrl]="'host/event/'"
-            [event]="event"
-          />
-        }
-      </div>
-    </div>
+<div class="manage-event-container h-100 rounded-4 px-4 py-2">
+  <div class="events-list h-100">
+    @for (event of events(); track event.id) {
+      <app-event-card-component
+        [componentNavigationUrl]="'host/event/'"
+        [event]="event"
+      />
+    }
   </div>
+  <button routerLink="/host/form" class="btn rounded-4" >+ Add Event</button>
 </div>
+
 
 
