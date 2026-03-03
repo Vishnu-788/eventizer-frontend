@@ -35,20 +35,12 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(authReq).pipe(
     catchError((httpError: HttpErrorResponse) => {
-
-      console.log(`Error caught at Interceptor Pipe. Error: ${httpError}`);
-      console.log(`Error status: ${httpError.status}`)
-      console.log(`Error detail: ${httpError.error.detail}`)
-      console.log(`Error code: ${httpError.error.code}`)
-
-
+     console.warn(`HttpError while performing HttpRequest: ${httpError}`);
       const isTokenExpired = httpError.status === 401 && httpError.error.code === 'token_not_valid';
-      console.log("Is token expired: " + isTokenExpired);
       if (isTokenExpired) {
-        console.log("Entered isTokenEcpired if block")
+        console.warn(`Access Token Expired. Requesting new Token.`);
         return authService.refreshToken().pipe(
           switchMap((response: any) => {
-            console.log("Refresh token at: " + response);
             const newAccessToken = response.access;
             authService.setAccessToken(newAccessToken);
             const retryReq = req.clone({
@@ -59,6 +51,8 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
             return next(retryReq);
           }),
           catchError(refreshError => {
+            console.error(`Refresh Error: ${refreshError}`);
+            console.warn("Performing logout...")
             authService.logout();
             return throwError(() => refreshError);
           })
