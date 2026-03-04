@@ -72,8 +72,8 @@ export const routes: Routes = [
     canActivate: [verifiedHostGuard],
     children: [
       { path: '', component: ManageEventsComponent },
+      { path: 'event/create', component: EventCreateForm},
       { path: 'event/:id', component: HostEventDetailComponent},
-      { path: 'form', component: EventCreateForm},
       { path: 'analytics', component: AnalyticsComponent },
       { path: 'profile', component: HostProfileComponent },
       { path: 'profile/edit', component: HostEditForm },
