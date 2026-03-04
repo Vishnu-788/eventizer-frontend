@@ -1,1 +1,24 @@
-<p>analytics-component works!</p>
+<div class="analytics-container rounded-4 h-100 p-3">
+  <div class="event-header rounded-4 d-flex align-items-center justify-content-between px-3 mb-1">
+    <div class="event-title">{{selectedEvent()?.e_title}}</div>
+    <div class="event-dropdown">
+      <button
+        class="dropdown-btn"
+        type="button"
+        (click)="toggleDropdown()"
+        [attr.aria-expanded]="isOpen()"
+      >
+        Events
+        <span class="arrow" [class.open]="isOpen()">▾</span>
+      </button>
+
+      @if (isOpen()) {
+        <ul class="event-dropdown-menu">
+          @for (event of events() ; track event.id) {
+            <li (click)="select(event)">{{event.e_title}}</li>
+          }
+        </ul>
+      }
+    </div>
+  </div>
+</div>
