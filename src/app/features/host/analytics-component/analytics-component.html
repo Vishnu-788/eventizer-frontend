@@ -1,47 +1,5 @@
-<!--<div class="analytics-container rounded-4 h-100 p-1">-->
-<!--  <div class="event-container d-flex flex-column rounded-4 px-3 mb-1 h-100">-->
-<!--   <div class="event-header d-flex align-items-center justify-content-between my-2">-->
-<!--     <div class="event-title">{{selectedEvent()?.e_title}}</div>-->
-<!--     <div class="event-dropdown">-->
-<!--       <button-->
-<!--         class="dropdown-btn"-->
-<!--         type="button"-->
-<!--         (click)="toggleDropdown()"-->
-<!--         [attr.aria-expanded]="isOpen()"-->
-<!--       >-->
-<!--         Events-->
-<!--         <span class="arrow" [class.open]="isOpen()">▾</span>-->
-<!--       </button>-->
-
-<!--       @if (isOpen()) {-->
-<!--         <ul class="event-dropdown-menu">-->
-<!--           @for (event of events() ; track event.id) {-->
-<!--             <li (click)="select(event)">{{event.e_title}}</li>-->
-<!--           }-->
-<!--         </ul>-->
-<!--       }-->
-<!--     </div>-->
-<!--   </div>-->
-<!--    <div class="event-metrics d-flex justify-content-around align-items-center my-2">-->
-<!--      <p>Total seats sold: {{eventAnalytics()?.total?.total_seats_sold}}</p>-->
-<!--      <p>Total Revenue: {{eventAnalytics()?.total?.total_revenue}}$</p>-->
-<!--      <p>Last booking at: {{eventAnalytics()?.total?.last_booking_at}}</p>-->
-<!--    </div>-->
-
-<!--    <div class="line-chart-container flex-fill">-->
-<!--      <app-line-chart-component-->
-<!--        [eventAnalytics]="eventAnalytics()"-->
-<!--      />-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div>-->
-<!--    Hello world-->
-<!--  </div>-->
-<!--</div>-->
-
-
-<div class="analytics-metrics d-flex flex-column container-fluid h-100 rounded-4 p-2">
-  <div class="header d-flex justify-content-between align-items-center">
+<div class="analytics-metrics container-fluid h-100 rounded-4 p-2">
+  <div class="header d-flex justify-content-between align-items-center mt-2">
     <div>
       <h3 class="mb-0">Event:</h3>
       <p>{{selectedEvent()?.e_title}}</p>
@@ -66,10 +24,10 @@
        }
      </div>
   </div>
-  <div class="line-chart-container h-100">
+  <div class="line-chart-container">
     <app-line-chart-component [eventAnalytics]="eventAnalytics()"/>
   </div>
-  <div>
+  <div class="bar-chart-container">
     Hello world
   </div>
 </div>
