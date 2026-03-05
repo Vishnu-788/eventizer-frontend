@@ -1,0 +1,12 @@
+<div class="line-chart d-flex flex-column w-100 h-100 g-2">
+  <h1>Revenue Made per day</h1>
+  <canvas
+    class="flex-fill"
+    baseChart
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [type]="'line'"
+    height="400px"
+  >
+  </canvas>
+</div>
