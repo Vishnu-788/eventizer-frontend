@@ -25,8 +25,9 @@ export const API_ENDPOINTS = {
   HOST_EVENT_LIST: `${BASE}/events/host/list/`,
   HOST_EVENT_DETAIL: `${BASE}/events/host/detail/`,
   GET_HOST_EVENT_RELATED_BOOKINGS: `${BASE}/bookings/host/view-booking/`, // Pass the event ID.
-  GET_HOST_EVENT_DAILY_ANALYTICS: (event_id: number) => `${BASE}/analytics/daily/${event_id}/event`,
-  GET_HOST_EVENT_TOTAL_ANALYTICS: (event_id: number) => `${BASE}/analytics/total/${event_id}/event`,
+  GET_EVENT_DETAIL_ANALYTICS: (event_id: number) => `${BASE}/analytics-metrics/event/${event_id}/detail/`,
+  GET_HOST_EVENT_DAILY_ANALYTICS: (event_id: number) => `${BASE}/analytics-metrics/daily/${event_id}/event/`,
+  GET_HOST_EVENT_TOTAL_ANALYTICS: (event_id: number) => `${BASE}/analytics-metrics/total/${event_id}/event/`,
 
   // Admin routes
   GET_HOSTS: `${BASE}/hosts/admin/`,

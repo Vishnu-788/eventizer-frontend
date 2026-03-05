@@ -1,24 +1,46 @@
-<div class="analytics-container rounded-4 h-100 p-3">
-  <div class="event-header rounded-4 d-flex align-items-center justify-content-between px-3 mb-1">
-    <div class="event-title">{{selectedEvent()?.e_title}}</div>
-    <div class="event-dropdown">
-      <button
-        class="dropdown-btn"
-        type="button"
-        (click)="toggleDropdown()"
-        [attr.aria-expanded]="isOpen()"
-      >
-        Events
-        <span class="arrow" [class.open]="isOpen()">▾</span>
-      </button>
+<div class="analytics-container rounded-4 h-100 p-1">
+  <div class="event-container rounded-4 px-3 mb-1 h-100">
+   <div class="event-header d-flex align-items-center justify-content-between">
+     <div class="event-title">{{selectedEvent()?.e_title}}</div>
+     <div class="event-dropdown">
+       <button
+         class="dropdown-btn"
+         type="button"
+         (click)="toggleDropdown()"
+         [attr.aria-expanded]="isOpen()"
+       >
+         Events
+         <span class="arrow" [class.open]="isOpen()">▾</span>
+       </button>
 
-      @if (isOpen()) {
-        <ul class="event-dropdown-menu">
-          @for (event of events() ; track event.id) {
-            <li (click)="select(event)">{{event.e_title}}</li>
-          }
-        </ul>
-      }
+       @if (isOpen()) {
+         <ul class="event-dropdown-menu">
+           @for (event of events() ; track event.id) {
+             <li (click)="select(event)">{{event.e_title}}</li>
+           }
+         </ul>
+       }
+     </div>
+   </div>
+    <div class="event-metrics d-flex justify-content-around align-items-center my-2">
+      <p>Total seats sold: {{eventAnalytics()?.total?.total_seats_sold}}</p>
+      <p>Total Revenue: {{eventAnalytics()?.total?.total_revenue}}$</p>
+      <p>Last booking at: {{eventAnalytics()?.total?.last_booking_at}}</p>
+    </div>
+
+    <div class="line-chart-container d-flex align-items-center">
+      <div class="w-100 h-100">
+        <h1 class="">Revenue Made per day</h1>
+        <canvas
+          baseChart
+          [data]="lineChartData"
+          [options]="lineChartOptions"
+          [type]="'line'"
+          height="100%"
+          width="100%"
+        >
+        </canvas>
+      </div>
     </div>
   </div>
 </div>
