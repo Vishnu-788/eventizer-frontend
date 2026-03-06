@@ -1,53 +1,51 @@
 import {Component, input} from '@angular/core';
 import {Chart, ChartConfiguration, registerables} from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
 import {EventDetailAnalytics} from '../../../../core/models/analytics.model';
+import {BaseChartDirective} from 'ng2-charts';
 
 Chart.register(...registerables)
 @Component({
-  selector: 'app-line-chart-component',
-  imports: [BaseChartDirective],
-  templateUrl: './line-chart-component.html',
-  styleUrl: './line-chart-component.scss',
+  selector: 'app-bar-chart-component',
+  imports: [
+    BaseChartDirective
+  ],
+  templateUrl: './bar-chart-component.html',
+  styleUrl: './bar-chart-component.scss',
 })
-export class LineChartComponent {
+
+export class BarChartComponent {
   eventAnalytics = input<EventDetailAnalytics>()
-  protected lineChartData: ChartConfiguration<'line'>['data'] = {
+  protected barChartData: ChartConfiguration<'bar'>['data'] = {
     labels: [],
     datasets: [
       {
-        data:[],
-        label: 'Revenue',
-        tension: 0.3
+        data: [],
+        label: 'Seats Sold',
       }
     ]
-  }
-  protected lineChartOptions: ChartConfiguration<'line'>['options'] = {
-    responsive: true,
-    maintainAspectRatio: false,
   }
 
   ngOnInit() {
     this.prepareChart()
   }
 
+  protected barChartOptions: ChartConfiguration<'bar'>['options'] = {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: "y"
+  }
+
   prepareChart() {
     const labels = this.api_data.map(data => data.date)
-    const revenue = this.api_data.map(data => Number(data.revenue))
-    // const seats_sold = this.api_data.map(data => data.seats_sold)
-    // const labels = this.eventAnalytics()?.daily.map(data => data.date)
-    // const revenue = this.eventAnalytics()?.daily.map(data => data.revenue)
-    if(revenue === undefined) {
-      return
-    }
+    const seat_sold = this.api_data.map(data => data.seats_sold)
 
-    this.lineChartData = {
+    this.barChartData = {
       labels: labels,
       datasets: [
         {
-          data: revenue,
-          label: 'Revenue'
-        },
+          data: seat_sold,
+          label: 'Seats Sold',
+        }
       ]
     }
   }

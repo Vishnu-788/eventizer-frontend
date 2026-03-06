@@ -6,6 +6,7 @@ import {AnalyticsService} from '../../../core/services/analytics-services/analyt
 import {EventDetailAnalytics} from '../../../core/models/analytics.model';
 import {LineChartComponent} from '../metrics/line-chart-component/line-chart-component';
 import {CurrencyPipe, DatePipe} from '@angular/common';
+import {BarChartComponent} from '../metrics/bar-chart-component/bar-chart-component';
 
 
 @Component({
@@ -13,7 +14,8 @@ import {CurrencyPipe, DatePipe} from '@angular/common';
   imports: [
     LineChartComponent,
     CurrencyPipe,
-    DatePipe
+    DatePipe,
+    BarChartComponent
   ],
   templateUrl: './analytics-component.html',
   styleUrl: './analytics-component.scss',

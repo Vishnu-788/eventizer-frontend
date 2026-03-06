@@ -57,7 +57,12 @@
       <hr>
     </div>
   </div>
-  <div class="bar-chart-container">
-    Hello world
+  <div class="bar-and-pie-container d-flex gap-2">
+    <div class="bar-chart-container h-100 w-50 rounded-4 p-4">
+      <app-bar-chart-component [eventAnalytics]="eventAnalytics()" />
+    </div>
+    <div class="pie-chart-container h-100 w-50 rounded-4 p-4">
+      Pie chart goes in here
+    </div>
   </div>
 </div>

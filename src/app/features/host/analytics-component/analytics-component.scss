@@ -96,8 +96,18 @@
     }
   }
 
-  .bar-chart-container {
-    height: 100%;
+  .bar-and-pie-container {
+    height: 70%;
     position: relative;
+
+    .bar-chart-container {
+      background-color: var(--bg-base-pure);
+      position: relative;
+    }
+    .pie-chart-container {
+      background-color: var(--bg-base-pure);
+      position: relative;
+    }
+
   }
 }
