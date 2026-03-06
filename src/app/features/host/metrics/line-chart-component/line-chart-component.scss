@@ -1,5 +1,9 @@
 .revenue-chart {
-  /* Remove height: 400px — let the container control it */
-  height: 100%;     /* fill the flex parent */
+  height: 100%;
   position: relative;
+
+  h1 {
+    font-weight: 900;
+    font-size: 2rem;
+  }
 }

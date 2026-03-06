@@ -7,9 +7,6 @@
     h3 {
       font-weight: 800;
     }
-    p {
-      font-weight: 700;
-    }
 
     .event-dropdown {
       position: relative;
@@ -34,6 +31,7 @@
       }
 
       .event-dropdown-menu {
+        z-index: 2;
         position: absolute;
         top: 120%;
         right: 0;
@@ -63,6 +61,8 @@
   .line-chart-container {
     height: 90%;
     position: relative;
+    background-color: var(--bg-base-pure);
+    z-index: 1;
   }
 
   .event-metrics {

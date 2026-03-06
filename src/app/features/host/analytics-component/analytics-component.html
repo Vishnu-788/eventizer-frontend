@@ -1,8 +1,7 @@
 <div class="analytics-metrics container-fluid h-100 rounded-4 p-2">
-  <div class="header d-flex justify-content-between align-items-center mt-2">
+  <div class="header d-flex justify-content-between align-items-center mt-2 p-4">
     <div>
-      <h3 class="mb-0">Event:</h3>
-      <p>{{selectedEvent()?.e_title}}</p>
+      <h3 class="mb-0">Event: {{selectedEvent()?.e_title}}</h3>
     </div>
     <div class="event-dropdown">
        <button
@@ -24,7 +23,7 @@
        }
      </div>
   </div>
-  <div class="line-chart-container">
+  <div class="line-chart-container rounded-4 p-4">
     <app-line-chart-component [eventAnalytics]="eventAnalytics()"/>
   </div>
   <div class="event-metrics d-flex flex-column justify-content-between p-2 my-3">
@@ -65,4 +64,5 @@
       <app-pie-chart-component [eventAnalytics]="eventAnalytics()" />
     </div>
   </div>
+  <div>Table goes in here</div>
 </div>
