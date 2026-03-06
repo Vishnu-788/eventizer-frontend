@@ -34,6 +34,7 @@ export class AnalyticsComponent {
   protected selectedEvent = signal<CityEvent | undefined>(undefined)
   protected events = signal<CityEvent[]>([])
   protected eventAnalytics = signal<EventDetailAnalytics | undefined>(undefined)
+  protected isAnalyticsAvailable = signal<boolean>(true)
 
 
   ngOnInit() {
@@ -55,8 +56,10 @@ export class AnalyticsComponent {
       next: eventAnalytics => {
         this.eventAnalytics.set(eventAnalytics)
         console.log("Event Analytics: " + eventAnalytics)
+        this.isAnalyticsAvailable.set(true)
       }, error: error => {
         console.log("Event Analytics Error: ", error);
+        this.isAnalyticsAvailable.set(false)
       }
     })
   }
