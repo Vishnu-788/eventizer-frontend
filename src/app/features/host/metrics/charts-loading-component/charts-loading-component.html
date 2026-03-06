@@ -1,0 +1,29 @@
+<div class="chart-loading w-100 h-100">
+
+  @switch (chartType()) {
+
+    @case ('bar') {
+      <div class="bar-chart d-flex align-items-end gap-2 h-100">
+        @for (bar of bars; track $index) {
+          <div class="bar"></div>
+        }
+      </div>
+    }
+
+    @case ('line') {
+      <div class="line-chart d-flex align-items-end gap-3 h-100">
+        @for (p of points; track $index) {
+          <div class="point"></div>
+        }
+      </div>
+    }
+
+    @case ('pie') {
+      <div class="pie-chart-container d-flex justify-content-center align-items-center h-100">
+        <div class="pie"></div>
+      </div>
+    }
+
+  }
+
+</div>

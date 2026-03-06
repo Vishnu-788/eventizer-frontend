@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, computed, input} from '@angular/core';
 import {Chart, ChartConfiguration, registerables} from 'chart.js';
 import {EventDetailAnalytics} from '../../../../core/models/analytics.model';
 import {BaseChartDirective} from 'ng2-charts';
@@ -14,42 +14,23 @@ Chart.register(...registerables)
 })
 
 export class BarChartComponent {
-  eventAnalytics = input<EventDetailAnalytics>()
-  protected barChartData: ChartConfiguration<'bar'>['data'] = {
-    labels: [],
-    datasets: [
-      {
-        data: [],
-        label: 'Seats Sold',
-      }
-    ]
-  }
+  eventAnalytics = input.required<EventDetailAnalytics>()
 
-  ngOnInit() {
-    this.prepareChart()
-  }
-
+  protected barChartData = computed<ChartConfiguration<'bar'>['data']>(()=> {
+    const analytics = this.eventAnalytics().daily
+    return {
+      labels: analytics.map(data => data.date),
+      datasets: [
+        {
+          data: analytics.map(data => data.seats_sold),
+          label: "Seats Sold"
+        }
+      ]
+    }
+  })
   protected barChartOptions: ChartConfiguration<'bar'>['options'] = {
     responsive: true,
     maintainAspectRatio: false,
     indexAxis: "y"
-  }
-
-  prepareChart() {
-    const labels = this.eventAnalytics()?.daily.map(data => data.date)
-    const seat_sold = this.eventAnalytics()?.daily.map(data => data.seats_sold)
-    console.log("LOGGING FROM BAR CHART: ")
-    console.log("LABELS: " + labels)
-    console.log("SEATS: " + seat_sold)
-
-    this.barChartData = {
-      labels: labels,
-      datasets: [
-        {
-          data: seat_sold,
-          label: 'Seats Sold',
-        }
-      ]
-    }
   }
 }

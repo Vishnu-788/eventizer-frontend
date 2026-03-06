@@ -8,6 +8,7 @@ import {LineChartComponent} from '../metrics/line-chart-component/line-chart-com
 import {CurrencyPipe, DatePipe} from '@angular/common';
 import {BarChartComponent} from '../metrics/bar-chart-component/bar-chart-component';
 import {PieChartComponent} from '../metrics/pie-chart-component/pie-chart-component';
+import {ChartsLoadingComponent} from '../metrics/charts-loading-component/charts-loading-component';
 
 
 @Component({
@@ -17,7 +18,8 @@ import {PieChartComponent} from '../metrics/pie-chart-component/pie-chart-compon
     CurrencyPipe,
     DatePipe,
     BarChartComponent,
-    PieChartComponent
+    PieChartComponent,
+    ChartsLoadingComponent
   ],
   templateUrl: './analytics-component.html',
   styleUrl: './analytics-component.scss',
@@ -52,7 +54,7 @@ export class AnalyticsComponent {
     this.analyticsService.getEventDetailAnalytics(eventId).subscribe({
       next: eventAnalytics => {
         this.eventAnalytics.set(eventAnalytics)
-        console.log(`EventAnalytics: ${eventAnalytics}`)
+        console.log("Event Analytics: " + eventAnalytics)
       }, error: error => {
         console.log("Event Analytics Error: ", error);
       }

@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, computed, input} from '@angular/core';
 import {Chart, ChartConfiguration, registerables} from 'chart.js';
 import {EventDetailAnalytics} from '../../../../core/models/analytics.model';
 import {BaseChartDirective} from 'ng2-charts';
@@ -13,39 +13,24 @@ Chart.register(...registerables)
   styleUrl: './pie-chart-component.scss',
 })
 export class PieChartComponent {
-  eventAnalytics = input<EventDetailAnalytics>()
-  protected pieChartData: ChartConfiguration<'pie'>['data'] = {
-    labels: [],
-    datasets: [
-      {
-        data: [],
-        label: 'Revenue Distribution'
-      }
-    ]
-  }
+  eventAnalytics = input.required<EventDetailAnalytics>()
+  protected pieChartData = computed<ChartConfiguration<'pie'>['data']>(() => {
+    const analytics = this.eventAnalytics().daily
+    return {
+      labels: analytics.map(data => data.date),
+      datasets: [
+        {
+          data: analytics.map(data => data.revenue),
+          label: "Revenue"
+        }
+      ]
+    }
+  })
 
   protected pieChartOptions: ChartConfiguration<'pie'>['options'] = {
     responsive: true,
     maintainAspectRatio: false,
   }
 
-  ngOnInit() {
-    this.prepareChart()
-  }
 
-  prepareChart() {
-    const labels = this.eventAnalytics()?.daily.map(data => data.date)
-    const revenue = this.eventAnalytics()?.daily.map(data => data.revenue)
-    console.log("LOGGING FROM PIE CHART: ")
-    console.log("LABELS: " + labels)
-    console.log("REVENUE: " + revenue)
-    this.pieChartData = {
-      labels: labels,
-      datasets: [
-        {
-          data: revenue,
-        }
-      ]
-    }
-  }
 }

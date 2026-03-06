@@ -1,0 +1,54 @@
+.chart-loading {
+  height: 100%;
+}
+
+.bar-chart .bar {
+  flex: 1;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(
+      90deg,
+      var(--bg-base-shade) 25%,
+      var(--bg-base) 50%,
+      var(--bg-base-shade) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.3s infinite;
+
+  &:nth-child(1){height:40%;}
+  &:nth-child(2){height:65%;}
+  &:nth-child(3){height:30%;}
+  &:nth-child(4){height:80%;}
+  &:nth-child(5){height:55%;}
+  &:nth-child(6){height:70%;}
+  &:nth-child(7){height:45%;}
+}
+
+.line-chart .point {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-base-shade);
+  animation: pulse 1.2s infinite alternate;
+}
+
+.pie {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+      var(--bg-base-shade) 0deg 120deg,
+      var(--bg-base) 120deg 240deg,
+      var(--bg-base-shade) 240deg 360deg
+  );
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes shimmer {
+  0% { background-position:-200% 0; }
+  100% { background-position:200% 0; }
+}
+
+@keyframes pulse {
+  from { opacity:.6; }
+  to { opacity:1; }
+}
