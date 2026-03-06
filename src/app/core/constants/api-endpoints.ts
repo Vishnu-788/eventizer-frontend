@@ -31,4 +31,5 @@ export const API_ENDPOINTS = {
 
   // Admin routes
   GET_HOSTS: `${BASE}/hosts/admin/`,
+  UPDATE_HOST_STATUS: (hostId: number) => `${BASE}/hosts/admin/${hostId}/update-status/`,
 }

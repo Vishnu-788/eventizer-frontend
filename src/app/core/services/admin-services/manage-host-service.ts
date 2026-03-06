@@ -17,4 +17,10 @@ export class ManageHostService {
       params: {status: 'pending'}
     })
   }
+
+  updateHostStatus(hostId: number, status: string) {
+    return this.http.patch(API_ENDPOINTS.UPDATE_HOST_STATUS(hostId), {
+      status: status
+    })
+  }
 }

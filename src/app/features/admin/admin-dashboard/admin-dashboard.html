@@ -1,6 +1,6 @@
-<div class="custom-container h-100 rounded-4">
+<div class="custom-container h-100 rounded-4 p-2">
   @for (host of hosts(); track host.user.username) {
-  <div class="w-100">
+  <div class="w-100 my-3">
     <div class="host-card shadow-sm">
 
       <!-- Header -->
@@ -16,7 +16,8 @@
                 'approved': host.status === 'approved',
                 'rejected': host.status === 'rejected',
                 'pending': host.status === 'pending'
-              }">
+              }"
+        >
           {{ host.status | titlecase }}
         </span>
       </div>

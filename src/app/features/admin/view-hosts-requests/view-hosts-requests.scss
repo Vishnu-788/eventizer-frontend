@@ -1,0 +1,29 @@
+.requests-container {
+  background-color: var(--bg-base-shade);
+  overflow-y: auto;
+
+  .request {
+    background-color: var(--bg-base-pure);
+    color: var(--text-primary);
+
+    .req-head {
+      h4 {
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+
+      span {
+        background-color: var(--bg-primary);
+        color: var(--bg-base-pure);
+      }
+    }
+    .req-body {
+      p {
+        margin: 0;
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
