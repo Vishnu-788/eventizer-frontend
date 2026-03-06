@@ -27,6 +27,36 @@
   <div class="line-chart-container">
     <app-line-chart-component [eventAnalytics]="eventAnalytics()"/>
   </div>
+  <div class="event-metrics d-flex flex-column justify-content-between p-2 my-3">
+    <div class="d-flex justify-content-center">
+      <hr>
+    </div>
+    <div class="event-metrics-body d-flex align-items-center justify-content-around p-4 rounded-4">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h4 class="metric-title">Total Seats Sold</h4>
+        <div class="box d-flex align-items-center justify-content-center rounded-4 shadow-sm">
+          {{ eventAnalytics()?.total?.total_seats_sold }}
+        </div>
+      </div>
+
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h4 class="metric-title">Total Revenue</h4>
+        <div class="box d-flex align-items-center justify-content-center rounded-4 shadow-sm">
+          {{ eventAnalytics()?.total?.total_revenue | currency:'USD' }}
+        </div>
+      </div>
+
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h4 class="metric-title">Last booking at</h4>
+        <div class="box d-flex align-items-center justify-content-center rounded-4 shadow-sm">
+          {{ eventAnalytics()?.total?.last_booking_at | date:'medium' }}
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <hr>
+    </div>
+  </div>
   <div class="bar-chart-container">
     Hello world
   </div>

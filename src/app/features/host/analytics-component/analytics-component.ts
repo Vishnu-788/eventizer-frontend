@@ -5,12 +5,15 @@ import {CityEvent} from '../../../core/models/event.model';
 import {AnalyticsService} from '../../../core/services/analytics-services/analytics-service';
 import {EventDetailAnalytics} from '../../../core/models/analytics.model';
 import {LineChartComponent} from '../metrics/line-chart-component/line-chart-component';
+import {CurrencyPipe, DatePipe} from '@angular/common';
 
 
 @Component({
   selector: 'app-analytics-component',
   imports: [
-    LineChartComponent
+    LineChartComponent,
+    CurrencyPipe,
+    DatePipe
   ],
   templateUrl: './analytics-component.html',
   styleUrl: './analytics-component.scss',
