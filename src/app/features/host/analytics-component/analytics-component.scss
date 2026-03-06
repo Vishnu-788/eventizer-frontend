@@ -108,6 +108,15 @@
       background-color: var(--bg-base-pure);
       position: relative;
     }
-
+  }
+  .table-container {
+    background-color: var(--bg-base-pure);
+    h1 {
+      font-weight: 900;
+      font-size: 2rem;
+    }
+    table {
+      color: var(--text-primary);
+    }
   }
 }

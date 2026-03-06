@@ -64,5 +64,27 @@
       <app-pie-chart-component [eventAnalytics]="eventAnalytics()" />
     </div>
   </div>
-  <div>Table goes in here</div>
+  <div class="table-container d-flex flex-column justify-content-center rounded-4 p-4 my-2">
+    <h1>Analytics Table</h1>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Date</th>
+        <th scope="col">Seats sold</th>
+        <th scope="col">Revenue generated</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (e of eventAnalytics()?.daily; track e.id) {
+          <tr>
+            <th scope="row">{{e.id}}</th>
+            <td>{{e.date}}</td>
+            <td>{{e.seats_sold}}</td>
+            <td>{{e.revenue}}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -32,14 +32,13 @@ export class LineChartComponent {
   }
 
   prepareChart() {
-    const labels = this.api_data.map(data => data.date)
-    const revenue = this.api_data.map(data => Number(data.revenue))
     // const seats_sold = this.api_data.map(data => data.seats_sold)
-    // const labels = this.eventAnalytics()?.daily.map(data => data.date)
-    // const revenue = this.eventAnalytics()?.daily.map(data => data.revenue)
-    if(revenue === undefined) {
-      return
-    }
+    const labels = this.eventAnalytics()?.daily.map(data => data.date)
+    const revenue = this.eventAnalytics()?.daily.map(data => data.revenue)
+    console.log("LOGGING FROM LINE CHART: ")
+    console.log("LABELS: " + labels)
+    console.log("REVENUE: " + revenue)
+
 
     this.lineChartData = {
       labels: labels,
