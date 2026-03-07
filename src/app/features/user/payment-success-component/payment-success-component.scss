@@ -1,0 +1,17 @@
+.payment-success {
+  background-color: var(--bg-base-shade);
+  color: var(--text-primary);
+  div {
+    background-color: var(--bg-base-pure);
+    div {
+      h1 {
+        font-weight: 900;
+        font-size: 4rem;
+      }
+      h4 {
+        font-weight: 600;
+        font-size: 2rem;
+      }
+    }
+  }
+}
