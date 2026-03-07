@@ -38,11 +38,22 @@ export class EventCreateForm {
       this.errorMessage.set("Please complete the given details")
       return
     }
+
     this.isSubmitting.set(true);
     this.errorMessage.set(null)
     this.eventForm.disable()
     const event = this.eventForm.getRawValue()
-    this.eventService.createEvent(event).subscribe({
+
+    const startDateTime = new Date(`${event.e_date}T${event.e_start_time}`);
+    const endDateTime = new Date(`${event.e_date}T${event.e_end_time}`);
+
+    const payload = {
+      ...event,
+      e_start_time: startDateTime.toISOString(),
+      e_end_time: endDateTime.toISOString(),
+    }
+
+    this.eventService.createEvent(payload).subscribe({
       next: event => {
         this.eventForm.reset();
         this.isSubmitting.set(false);

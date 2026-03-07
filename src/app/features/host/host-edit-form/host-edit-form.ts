@@ -31,6 +31,6 @@ export class HostEditForm {
     email: new FormControl(''),
     company_name: new FormControl(''),
     company_contact_email: new FormControl(''),
-    company_contact_no: new FormControl(0),
+    company_contact_no: new FormControl(''),
   })
 }

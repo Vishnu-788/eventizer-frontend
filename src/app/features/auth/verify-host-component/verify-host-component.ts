@@ -28,7 +28,7 @@ export class VerifyHostComponent {
   hostVerificationForm = new FormGroup({
     company_name: new FormControl('',
       {nonNullable: true, validators: Validators.required}),
-    company_contact_no: new FormControl(0,
+    company_contact_no: new FormControl('',
       {nonNullable: true, validators: Validators.required}),
     company_contact_email: new FormControl('',
       {nonNullable: true, validators: [Validators.required, Validators.email]}),
@@ -45,7 +45,9 @@ export class VerifyHostComponent {
           this.showVerificationForm.set(false)
           this.loadHost()
         },
-        error: error => {}
+        error: error => {
+          console.log("Error HostCreate: ", error)
+        }
       })
   }
 

@@ -11,12 +11,12 @@ export interface HostModel {
   user: User;
   company_name: string;
   company_contact_email: string;
-  company_contact_no: number;
+  company_contact_no: string;
   status: string;
 }
 
 export interface HostCompanyPayload {
   company_name: string;
   company_contact_email: string;
-  company_contact_no: number;
+  company_contact_no: string;
 }
