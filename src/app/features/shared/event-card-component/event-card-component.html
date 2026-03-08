@@ -1,27 +1,55 @@
-<div (click)="handleClick()" class="event-card rounded-4 p-4 my-3">
-  <header>
-    <div class="event-header d-flex justify-content-between">
-      <h3>{{event().e_title}}</h3>
-      <span class="px-4 d-inline-flex align-items-center rounded-4">
-        {{event().e_category}}
-      </span>
-    </div>
-  </header>
-  <div class="event-body h-100 pb-4">
-    <div class="h-75 d-flex justify-content-between align-items-center">
-      <div>
-        <div>Event starts at: {{event().e_start_time}}</div>
-        <div>Events ends at: {{event().e_end_time}}</div>
+<div class="event-card rounded-4 p-4">
+  <div class="event-header d-flex justify-content-between align-items-center">
+    <h1>{{event()?.e_title}}</h1>
+    <span class="rounded-5 p-2 d-flex justify-content-center">{{event()?.e_category}}</span>
+  </div>
+
+  <hr>
+
+  <div class="event-card-body my-3">
+    <div class="event-date d-flex my-2 gap-2">
+      <div class="icon-container rounded-2">
+        <app-date-icon class="icon" />
       </div>
       <div>
-        <div class="price-container d-flex flex-column justify-content-center h-100 rounded-4 px-4">
-          <div>Per head</div>
-          <div>${{event().price}}</div>
+        <div class="meta-label">Date</div>
+        <div>{{event()?.e_date}}</div>
+      </div>
+    </div>
+
+    <div class="event-date d-flex my-2 gap-2">
+      <div class="icon-container rounded-2">
+        <app-time-icon class="icon" />
+      </div>
+      <div>
+        <div class="meta-label">Time</div>
+        <div>
+          {{ event()?.e_start_time | date:'h:mm a' }} -
+          {{ event()?.e_end_time | date:'h:mm a' }}
         </div>
       </div>
     </div>
-    <div>
-      Event Venue: {{event().e_venue}}
+  </div>
+
+  <hr>
+
+  <div class="event-card-footer d-flex justify-content-between align-items-center">
+    <div class="event-date d-flex align-items-center justify-content-center gap-2">
+      <div class="icon-container rounded-2">
+        <app-location-icon class="icon" />
+      </div>
+      <div>
+        <div class="meta-label">Venue</div>
+        <div>
+          {{ event()?.e_venue}}
+        </div>
+      </div>
+    </div>
+    <div class="price-tag d-flex flex-column align-items-center rounded-4 p-2">
+      <div class="meta-label">Price</div>
+      <div>
+       $ {{ event()?.price }}
+      </div>
     </div>
   </div>
 </div>

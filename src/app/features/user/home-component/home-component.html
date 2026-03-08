@@ -1,4 +1,4 @@
-<div class="home-wrapper rounded-4 p-3">
+<div class="home-wrapper rounded-4 p-3 d-flex flex-column gap-3">
   @for (event of events(); track event.id) {
     <app-event-card-component
       [event]="event"
