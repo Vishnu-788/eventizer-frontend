@@ -11,7 +11,15 @@ import {NavbarTitleService} from '../../../core/services/state-service/navbar-ti
 export class NavbarComponent {
   private authService = inject(AuthService)
   private titleService = inject(NavbarTitleService)
-  fullName = signal(this.authService.getFullName())
-  username = signal(this.authService.getUsername())
+  protected displayName = signal(this.getDisplayName())
   title = this.titleService.title
+
+
+  getDisplayName() {
+    const fullName = this.authService.getFullName()?.trim()
+    if(fullName) {
+      return fullName
+    }
+    return this.authService.getUsername()
+  }
 }
