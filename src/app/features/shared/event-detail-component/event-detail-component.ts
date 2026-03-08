@@ -2,13 +2,14 @@ import {Component, inject, signal} from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {EventDetailService} from './event-detail-service';
 import {EventDetail} from '../../../core/models/event.model';
+import {DatePipe} from '@angular/common';
 
 
 @Component({
   selector: 'app-event-detail-component',
   imports: [
     RouterLink,
-    // RouterLink
+    DatePipe,
   ],
   templateUrl: './event-detail-component.html',
   styleUrl: './event-detail-component.scss',

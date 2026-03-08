@@ -1,51 +1,59 @@
-<div class="event-wrapper d-flex flex-column p-2">
-
-  <div class="event-card flex-grow-1 p-4 w-100">
-
-    <h2 class="event-title mb-3">
-      {{event()?.e_title}}
-    </h2>
-
-    <div class="event-meta mb-3">
-      <span><strong>Date:</strong> {{event()?.e_date}}</span> |
-      <span><strong>Time:</strong> {{event()?.e_start_time}} - {{event()?.e_end_time}}</span>
-    </div>
-
-    <div class="mb-2">
-      <strong>Category:</strong> {{event()?.e_category}}
-    </div>
-
-    <div class="mb-2">
-      <strong>Venue:</strong> {{event()?.e_venue}}
-    </div>
-
-    <div class="mb-2">
-      <strong>Total Seats:</strong> {{event()?.total_seats}}
-    </div>
-
-    <div class="price-action-wrapper mt-4">
-      <div class="price-box">
-        {{ event()?.price }} Rs
+<div class="event-detail-container rounded-4 h-100 p-1">
+  <div class="white-wrapper d-flex flex-column rounded-4 h-100 p-3">
+    <div class="d-flex justify-content-between align-items-start event-header">
+      <div class="title-section">
+        <h1 class="event-title">
+          {{ event()?.e_title }}
+        </h1>
+        <span class="event-date">{{ event()?.e_date }}
+      </span>
       </div>
-      <a class="book-btn" [routerLink]="[`/book/event/${event()?.id}`]">
-        Book Now
-      </a>
-
+      <span class="event-category">
+      {{ event()?.e_category }}
+    </span>
     </div>
+    <hr>
 
+    <div class="event-body flex-fill">
 
-    <h5 class="section-title mt-4">About the Event</h5>
-    <p class="event-description">
-      {{event()?.e_description}}
-    </p>
+      <div class="event-description">
+        <h3>About the event</h3>
+        <p>{{ event()?.e_description}}</p>
+      </div>
 
-    <h5 class="section-title mt-4">Host Information</h5>
-    <p class="host-info">
-      <strong>Company:</strong> {{event()?.host?.company_name}} <br>
-      <strong>Contact:</strong> {{event()?.host?.company_contact_no}} <br>
-      <strong>Email:</strong>{{event()?.host?.company_contact_email}}
-    </p>
+      <hr>
 
+      <div class="event-info">
+
+        <div class="info-item">
+          <span class="label">Venue</span>
+          <span class="value">{{ event()?.e_venue }}</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Start</span>
+          <span class="value">{{ event()?.e_start_time | date: 'medium'}}</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">End</span>
+          <span class="value">{{ event()?.e_end_time | date: 'medium' }}</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Seats</span>
+          <span class="value">{{ event()?.total_seats }}</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Price</span>
+          <span class="value">${{ event()?.price }}</span>
+        </div>
+
+      </div>
+    </div>
+    <button class="btn" [routerLink]="[`/book/event/${event()?.id}`]">
+      Book Now
+    </button>
   </div>
-
 </div>
