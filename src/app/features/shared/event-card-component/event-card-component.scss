@@ -1,6 +1,13 @@
 .event-card {
   background-color: var(--bg-base-pure);
   color: var(--text-primary);
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(52, 67, 115, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
   .event-header {
     h1 {
       font-size: 1.5rem;

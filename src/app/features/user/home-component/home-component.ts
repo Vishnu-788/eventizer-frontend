@@ -1,11 +1,8 @@
 import {Component, inject} from '@angular/core';
-// import {LlmChatComponent} from '../llm-chat-component/llm-chat-component';
-import {HomeService} from './home-service';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {EventCardComponent} from '../../shared/event-card-component/event-card-component';
 import {NavbarTitleService} from '../../../core/services/state-service/navbar-title-service';
-
-
+import {EventService} from '../../../core/services/event-services/event-service';
 
 @Component({
   selector: 'app-home-component',
@@ -18,10 +15,10 @@ import {NavbarTitleService} from '../../../core/services/state-service/navbar-ti
 })
 
 export class HomeComponent {
-  private homeService = inject(HomeService)
+  private homeService = inject(EventService)
   private titleService = inject(NavbarTitleService)
   ngOnInit() {
     this.titleService.setTitle('Explore Events');
   }
-  events = toSignal(this.homeService.getAllEvents(), { initialValue: [] });
+  events = toSignal(this.homeService.getUserAllEvents(), { initialValue: [] });
 }

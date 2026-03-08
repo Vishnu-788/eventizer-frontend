@@ -29,8 +29,4 @@ export class EventCardComponent {
     const id = this.event().id
     this.router.navigate([this.componentNavigationUrl(), id])
   }
-
-  protected convertToIsoDateTime(e_date: string, time: string) {
-    return `${e_date}T${time}`
-  }
 }

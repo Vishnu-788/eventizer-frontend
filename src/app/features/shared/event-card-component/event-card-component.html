@@ -1,4 +1,4 @@
-<div class="event-card rounded-4 p-4">
+<div class="event-card rounded-4 p-4" (click)="handleClick()">
   <div class="event-header d-flex justify-content-between align-items-center">
     <h1>{{event()?.e_title}}</h1>
     <span class="rounded-5 p-2 d-flex justify-content-center">{{event()?.e_category}}</span>

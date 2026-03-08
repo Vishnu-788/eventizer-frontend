@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {CityEvent, EventDetail, EventPayload} from '../../models/event.model';
 import {API_ENDPOINTS} from '../../constants/api-endpoints';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -22,5 +23,9 @@ export class EventService {
 
   getHostEvents() {
     return this.http.get(API_ENDPOINTS.HOST_EVENT_LIST)
+  }
+
+  getUserAllEvents(): Observable<CityEvent[]> {
+    return this.http.get<CityEvent[]>(API_ENDPOINTS.GET_ALL_EVENTS)
   }
 }
