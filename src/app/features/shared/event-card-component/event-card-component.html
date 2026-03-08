@@ -1,7 +1,7 @@
 <div class="event-card rounded-4 p-4" (click)="handleClick()">
   <div class="event-header d-flex justify-content-between align-items-center">
-    <h1>{{event()?.e_title}}</h1>
-    <span class="rounded-5 p-2 d-flex justify-content-center">{{event()?.e_category}}</span>
+    <h1>{{event().e_title}}</h1>
+    <span class="rounded-5 p-2 d-flex justify-content-center">{{event().e_category}}</span>
   </div>
 
   <hr>
@@ -13,7 +13,7 @@
       </div>
       <div>
         <div class="meta-label">Date</div>
-        <div>{{event()?.e_date}}</div>
+        <div>{{event().e_date}}</div>
       </div>
     </div>
 
@@ -24,8 +24,8 @@
       <div>
         <div class="meta-label">Time</div>
         <div>
-          {{ event()?.e_start_time | date:'h:mm a' }} -
-          {{ event()?.e_end_time | date:'h:mm a' }}
+          {{ event().e_start_time | date:'h:mm a' }} -
+          {{ event().e_end_time | date:'h:mm a' }}
         </div>
       </div>
     </div>
@@ -41,14 +41,14 @@
       <div>
         <div class="meta-label">Venue</div>
         <div>
-          {{ event()?.e_venue}}
+          {{ event().e_venue}}
         </div>
       </div>
     </div>
     <div class="price-tag d-flex flex-column align-items-center rounded-4 p-2">
       <div class="meta-label">Price</div>
       <div>
-       $ {{ event()?.price }}
+       $ {{ event().price }}
       </div>
     </div>
   </div>

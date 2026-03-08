@@ -1,7 +1,7 @@
 import {Component, inject, input} from '@angular/core';
 import {CityEvent} from '../../../core/models/event.model';
 import {Router} from '@angular/router';
-import {DatePipe, NgOptimizedImage} from '@angular/common';
+import {DatePipe} from '@angular/common';
 import {DateIcon} from '../icons/date-icon/date-icon';
 import {TimeIcon} from '../icons/time-icon/time-icon';
 import {LocationIcon} from '../icons/location-icon/location-icon';
@@ -11,7 +11,6 @@ import {LocationIcon} from '../icons/location-icon/location-icon';
   selector: 'app-event-card-component',
   imports: [
     DatePipe,
-    NgOptimizedImage,
     DateIcon,
     TimeIcon,
     LocationIcon
