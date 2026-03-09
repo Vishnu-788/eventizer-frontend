@@ -10,6 +10,14 @@
 
   .sidebar-nav {
     position: relative;
+    .icon {
+      color: var(--text-primary);
+      width: 14px;
+      height: 14px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: inline-block;
+    }
   }
 
   .sidebar-link {
@@ -22,15 +30,26 @@
   }
 
   /* Hover */
-  .sidebar-link:hover {
-    background-color: var(--bg-base-tint);
-    color: var(--bg-primary);
+  .sidebar-link {
+    &:hover {
+      .icon {
+        background-color: var(--bg-base-tint);
+        color: var(--bg-primary); /* whatever styles you want */
+      }
+
+      span {
+        color: var(--bg-primary);
+      }
+    }
   }
 
   /* Active state */
   .sidebar-link.active {
     color: var(--bg-primary);
     font-weight: 600;
+    .icon {
+      color: var(--bg-primary); /* or whatever active icon styles you need */
+    }
   }
 
   /* Pink side stick */

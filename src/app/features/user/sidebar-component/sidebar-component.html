@@ -8,42 +8,57 @@
       <ul class="nav flex-column gap-2 sidebar-nav">
         <li class="nav-item">
           <a
-            class="nav-link sidebar-link"
+            class="nav-link sidebar-link d-flex align-items-center justify-content-start gap-2"
             routerLink="/"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}"
           >
-            Explore
+            <app-date-icon class="icon flex-grow-0" />
+            <span class="flex-grow-1">Explore</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a
-            class="nav-link sidebar-link"
+            class="nav-link sidebar-link d-flex align-items-center justify-content-start gap-2"
             routerLink="/bookings"
             routerLinkActive="active"
           >
-            Bookings
+            <app-booking-icon class="icon flex-grow-0" />
+            <span class="flex-grow-1">Bookings</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a
-            class="nav-link sidebar-link"
+            class="nav-link sidebar-link d-flex align-items-center justify-content-start gap-2"
             routerLink="/tickets"
             routerLinkActive="active"
           >
-            Tickets
+            <app-tickets-icon class="icon flex-grow-0" />
+            <span class="flex-grow-1">Tickets</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a
-            class="nav-link sidebar-link"
+            class="nav-link sidebar-link d-flex align-items-center justify-content-start gap-2"
+            routerLink="/assistant"
+            routerLinkActive="active"
+          >
+            <app-assistant-icon class="icon flex-grow-0" />
+            <span class="flex-grow-1">Assistant</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link sidebar-link d-flex align-items-center justify-content-start gap-2"
             routerLink="/profile"
             routerLinkActive="active"
           >
-            Profile
+            <app-profile-icon class="icon flex-grow-0" />
+            <span class="flex-grow-1">Profile</span>
           </a>
         </li>
       </ul>

@@ -14,7 +14,6 @@ import {LocationIcon} from '../icons/location-icon/location-icon';
     DateIcon,
     TimeIcon,
     LocationIcon
-
   ],
   templateUrl: './event-card-component.html',
   styleUrl: './event-card-component.scss',
