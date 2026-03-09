@@ -29,6 +29,7 @@ import {HostEditForm} from './features/host/host-edit-form/host-edit-form';
 import {VerifyHostComponent} from './features/auth/verify-host-component/verify-host-component';
 import {verifiedHostGuard} from './core/guards/auth-guard/verified-host-guard';
 import {ViewHostsRequests} from './features/admin/view-hosts-requests/view-hosts-requests';
+import {LlmChatComponent} from './features/user/llm-chat-component/llm-chat-component';
 
 export const routes: Routes = [
   {
@@ -44,7 +45,8 @@ export const routes: Routes = [
       { path: 'payment/processing', component: PaymentProcessingComponent },
       { path: 'payment/success', component: PaymentSuccessComponent },
       { path: 'payment/cancel', component: PaymentCancelComponent },
-      { path: 'tickets', component: TicketsComponent }
+      { path: 'tickets', component: TicketsComponent },
+      { path: 'assistant', component: LlmChatComponent}
     ]
   },
   {

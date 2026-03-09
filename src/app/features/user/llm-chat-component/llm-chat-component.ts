@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {NavbarTitleService} from '../../../core/services/state-service/navbar-title-service';
 
 @Component({
   selector: 'app-llm-chat-component',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './llm-chat-component.scss',
 })
 export class LlmChatComponent {
-
+  titleService = inject(NavbarTitleService);
+  ngOnInit() {
+    this.titleService.setTitle("Assistant")
+  }
 }

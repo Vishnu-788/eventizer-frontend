@@ -4,6 +4,10 @@
 
 .chat-header {
   border-bottom: 1px solid #e5e5e5;
+  h6 {
+    font-weight: 700;
+    color: var(--bg-primary);
+  }
 }
 
 
