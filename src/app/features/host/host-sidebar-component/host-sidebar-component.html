@@ -8,45 +8,49 @@
       <ul class="nav flex-column gap-2 sidebar-nav">
         <li class="nav-item">
           <a
-            class="nav-link sidebar-link d-flex align-items-center"
+            class="nav-link sidebar-link d-flex align-items-center justify-content-start gap-2"
             routerLink="/host"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}"
           >
-            Manage Events
+            <app-date-icon class="icon" />
+            <span>Manage Events</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a
-            class="nav-link sidebar-link d-flex align-items-center"
+            class="nav-link sidebar-link d-flex align-items-center justify-content-start gap-2"
             routerLink="/host/analytics"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}"
           >
-            Analytics
+            <app-analytics-icon class="icon" />
+            <span>Analytics</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a
-            class="nav-link sidebar-link d-flex align-items-center"
+            class="nav-link sidebar-link d-flex align-items-center justify-content-start gap-2"
             routerLink="/host/bookings"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}"
           >
-            Bookings
+            <app-booking-icon class="icon" />
+            <span>Bookings</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a
-            class="nav-link sidebar-link d-flex align-items-center"
+            class="nav-link sidebar-link d-flex align-items-center justify-content-start gap-2"
             routerLink="/host/profile"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}"
           >
-            Profile
+            <app-profile-icon class="icon" />
+            <span>Profile</span>
           </a>
         </li>
       </ul>
