@@ -1,4 +1,4 @@
-<form class="profile-edit h-100 d-flex flex-column" [formGroup]="profileForm">
+<form class="profile-edit h-100 d-flex flex-column" [formGroup]="profileForm" (ngSubmit)="handleSubmit()">
 
   <!-- Header -->
   <div class="header px-5 py-4">
@@ -16,7 +16,6 @@
 
   <!-- Content -->
   <div class="content container-fluid px-5 py-4 flex-grow-1">
-
     <div class="form-grid">
 
       <div class="form-group">
@@ -50,7 +49,6 @@
       </div>
 
     </div>
-
   </div>
 
 </form>

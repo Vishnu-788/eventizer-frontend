@@ -12,5 +12,4 @@ import {UiState} from './core/services/ui-state/ui-state';
 export class App {
   uiStateService = inject(UiState)
   protected readonly title = signal('eventizer');
-
 }
