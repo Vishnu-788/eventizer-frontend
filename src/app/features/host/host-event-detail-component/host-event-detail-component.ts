@@ -2,11 +2,12 @@ import {Component, inject, signal} from '@angular/core';
 import {EventService} from '../../../core/services/event-services/event-service';
 import {EventDetail} from '../../../core/models/event.model';
 import {ActivatedRoute} from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-host-event-detail-component',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './host-event-detail-component.html',
   styleUrl: './host-event-detail-component.scss',
 })

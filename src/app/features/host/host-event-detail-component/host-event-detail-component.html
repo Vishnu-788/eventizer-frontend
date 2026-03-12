@@ -1,11 +1,56 @@
-<div class="event-detail d-flex flex-column h-100 rounded-4 p-4">
-  <div class="event-title">
-    <h2 class="mb-0">
-      {{event()?.e_title}}
-    </h2>
-    <small>{{event()?.e_category}}</small>
-  </div>
-  <div class="event-description h-100">
+<div class="event-detail-container rounded-4 h-100 p-1">
+  <div class="white-wrapper d-flex flex-column rounded-4 h-100 p-3">
+    <div class="d-flex justify-content-between align-items-start event-header">
+      <div class="title-section">
+        <h1 class="event-title">
+          {{ event()?.e_title }}
+        </h1>
+        <span class="event-date">{{ event()?.e_date }}
+      </span>
+      </div>
+      <span class="event-category">
+      {{ event()?.e_category }}
+    </span>
+    </div>
+    <hr>
 
+    <div class="event-body flex-fill">
+
+      <div class="event-description">
+        <h3>About the event</h3>
+        <p>{{ event()?.e_description}}</p>
+      </div>
+
+      <hr>
+
+      <div class="event-info">
+
+        <div class="info-item">
+          <span class="label">Venue</span>
+          <span class="value">{{ event()?.e_venue }}</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Start</span>
+          <span class="value">{{ event()?.e_start_time | date: 'medium'}}</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">End</span>
+          <span class="value">{{ event()?.e_end_time | date: 'medium' }}</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Seats</span>
+          <span class="value">{{ event()?.total_seats }}</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Price</span>
+          <span class="value">${{ event()?.price }}</span>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>

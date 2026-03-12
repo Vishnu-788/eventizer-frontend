@@ -1,11 +1,107 @@
-.event-detail {
-  background-color: var(--bg-base-shade);
+.event-detail-container {
+  background: var(--bg-base-shade);
   color: var(--text-primary);
-  overflow-y: auto;
-  .event-title {
-    h2 {
-      font-weight: 700;
-      font-size: 2.5rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: 0.2s ease;
+  position: relative;
+
+  .white-wrapper {
+    background-color: var(--bg-base-pure);
+    overflow-y: auto;
+    .event-header {
+      gap: 1rem;
+    }
+
+    .title-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .event-title {
+      font-weight: 800;
+      font-size: 2rem;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .event-date {
+      font-size: 0.85rem;
+      background: var(--bg-base-shade);
+      color: var(--text-secondary);
+      padding: 4px 10px;
+      border-radius: 999px;
+      width: fit-content;
+      font-weight: 500;
+    }
+
+    .event-category {
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--text-primary);
+      color: var(--bg-base-pure);
+      height: fit-content;
+      letter-spacing: 0.02em;
+    }
+
+    .event-body {
+
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .event-description {
+        min-height: 50%;
+
+        h3 {
+          font-size: 1.1rem;
+          font-weight: 700;
+          margin-bottom: 6px;
+        }
+
+        p {
+          color: var(--text-secondary);
+          text-align: justify;
+          line-height: 1.5;
+        }
+      }
+
+      .event-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 12px;
+      }
+
+      .info-item {
+        display: flex;
+        flex-direction: column;
+        padding: 8px 10px;
+        background: var(--bg-base-shade);
+        border-radius: 10px;
+      }
+
+      .label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+      }
+
+      .value {
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+    }
+    button {
+      background-color: var(--bg-primary);
+      color: var(--bg-base-pure);
+      width: 8rem;
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
     }
   }
 }
