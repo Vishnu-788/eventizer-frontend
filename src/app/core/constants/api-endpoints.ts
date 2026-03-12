@@ -16,6 +16,7 @@ export const API_ENDPOINTS = {
   GET_TICKETS: `${BASE}/tickets/`,
   MANAGE_USER_PROFILE: `${BASE}/auth/user/`,
   GET_USER_BOOKINGS: `${BASE}/bookings/user/list/`,
+  LLM_ENDPOINT: `${BASE}/llm/`,
 
   // Host routes
   HOST_DETAIL: `${BASE}/hosts/me/`,

@@ -57,6 +57,7 @@ export class EventCreateForm {
       next: event => {
         this.eventForm.reset();
         this.isSubmitting.set(false);
+        this.eventForm.enable()
       },
       error: err => {
         this.isSubmitting.set(false);

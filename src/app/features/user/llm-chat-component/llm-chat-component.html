@@ -7,21 +7,39 @@
 
   <!-- Messages -->
   <div class="chat-messages flex-fill px-4 py-3 overflow-auto">
+    @if(messages().length === 0) {
+      <div class="empty-container d-flex flex-column align-items-center justify-content-center text-center h-100 p-4">
+        <div class="empty-state-avatar mb-4">
+          <span class="fs-1 fw-bold text-primary">?</span>
+        </div>
+        
+        <h4 class="fw-semibold mb-3">Nothing here yet!</h4>
+        <p class="text-secondary small mb-4">Select a suggestion below or type your own query to get started.</p>
 
-    <!-- Bot Message -->
-    <div class="message bot-message mb-3">
-      <div class="message-bubble">
-        Hello 👋 How can I help you today?
+        <div class="suggestion-grid d-flex flex-column gap-2 w-100" style="max-width: 350px;">
+          <button class="btn btn-light border text-start py-2 px-3 rounded-3 shadow-sm">
+            "What are the current events?"
+          </button>
+          <button class="btn btn-light border text-start py-2 px-3 rounded-3 shadow-sm">
+            "Ask about an event on..."
+          </button>
+          <button class="btn btn-light border text-start py-2 px-3 rounded-3 shadow-sm">
+            "What's happening this weekend?"
+          </button>
+        </div>
       </div>
-    </div>
-
-    <!-- User Message -->
-    <div class="message user-message mb-3 text-end">
-      <div class="message-bubble">
-        Show my bookings.
-      </div>
-    </div>
-
+    } @else {
+        @for(msg of messages(); track $index) {
+          <div 
+            class="message mb-3"
+            [class]="msg.author === 'llm' ? 'bot-message' : 'user-message'"
+          >
+            <div class="message-bubble">
+              {{msg.message}}
+            </div>
+          </div>
+        }
+    }
   </div>
 
   <!-- Input -->
@@ -31,8 +49,9 @@
         type="text"
         class="form-control rounded-pill"
         placeholder="Type your message..."
+        [formControl]="userQuery"
       />
-      <button class="send-btn rounded-circle">
+      <button class="send-btn rounded-circle" (click)="handleSend()">
         ➤
       </button>
     </div>
