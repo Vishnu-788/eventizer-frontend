@@ -1,8 +1,8 @@
 import {Component, inject, signal} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {EventService} from '../../../core/services/event-services/event-service';
-import {EventPayload} from '../../../core/models/event.model';
 import {NavbarTitleService} from '../../../core/services/state-service/navbar-title-service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-event-create-form',
@@ -14,11 +14,12 @@ import {NavbarTitleService} from '../../../core/services/state-service/navbar-ti
 })
 export class EventCreateForm {
   private eventService = inject(EventService);
-  private navbarService = inject(NavbarTitleService)
-  protected errorMessage = signal<string | null>(null)
-  isSubmitting = signal(false)
+  private navbarService = inject(NavbarTitleService);
 
-  ngOnInit() { this.navbarService.setTitle('Create Event')}
+  protected errorMessage = signal<string | null>(null);
+  protected isSubmitting = signal(false);
+
+  ngOnInit() { this.navbarService.setTitle('Create Event')};
 
   eventForm = new FormGroup({
     e_title: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
@@ -59,14 +60,32 @@ export class EventCreateForm {
         this.isSubmitting.set(false);
         this.eventForm.enable()
       },
-      error: err => {
+      error: (err: HttpErrorResponse) => {
+        this.eventForm.enable()
         this.isSubmitting.set(false);
-        this.errorMessage.set(err.error.detail)
-        console.log("Error creating Event: " + err.error.detail)
-        this.eventForm.enable();
+        this.handleError(err)
       },
     })
   }
+
+handleError(err: HttpErrorResponse) {
+  const errors = err.error; // This is the { "e_date": [...] } object
+
+  Object.keys(errors).forEach(prop => {
+    const formControl = this.eventForm.get(prop);
+    console.log("Form control", formControl);
+    
+    
+    if (formControl) {
+      // Set the error object. We use the first message from the array.
+      formControl.setErrors({
+        serverError: errors[prop][0]
+      });
+      formControl.markAsTouched(); // Mark as touched to show the error message
+    }
+  });
+
+}
 
   get e_title() {return this.eventForm.get('e_title');}
   get e_description() {return this.eventForm.get('e_description');}

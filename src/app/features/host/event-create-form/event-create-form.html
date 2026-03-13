@@ -57,7 +57,7 @@
         <input type="date" formControlName="e_date"
                [class.invalid]="e_date?.invalid && e_date?.touched">
         <p class="error-text" [class.show]="e_date?.invalid && e_date?.touched">
-          This field is required
+          {{ e_date?.errors?.['serverError'] || 'This field is required' }}
         </p>
       </div>
 
@@ -67,7 +67,7 @@
         <input type="time" formControlName="e_start_time"
                [class.invalid]="e_start_time?.invalid && e_start_time?.touched">
         <p class="error-text" [class.show]="e_start_time?.invalid && e_start_time?.touched">
-          This field is required
+          {{ e_start_time?.errors?.['serverError'] || 'This field is required' }}
         </p>
       </div>
 
@@ -77,7 +77,7 @@
         <input type="time" formControlName="e_end_time"
                [class.invalid]="e_end_time?.invalid && e_end_time?.touched">
         <p class="error-text" [class.show]="e_end_time?.invalid && e_end_time?.touched">
-          This field is required
+          {{ e_end_time?.errors?.['serverError'] || 'This field is required' }}
         </p>
       </div>
 
