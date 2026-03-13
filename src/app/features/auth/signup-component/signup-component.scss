@@ -103,6 +103,16 @@
       animation-delay: 0.4s;
     }
 
+    .smt {
+      font-weight: bold;
+      color: var(--bg-base-pure);
+      font-size: medium;
+    }
+
+    .a-tag {
+      text-decoration: none;
+    }
+
     /* Blinking animation */
     @keyframes blink {
       0%, 80%, 100% {

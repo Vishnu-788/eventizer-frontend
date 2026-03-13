@@ -11,11 +11,15 @@ import {AuthService} from '../../../core/services/auth-service/auth-service';
   styleUrl: './host-navbar-component.scss',
 })
 export class HostNavbarComponent {
-  navbarService = inject(NavbarTitleService)
-  authService = inject(AuthService)
-  displayName = signal(this.getDisplayName())
+  private navbarService = inject(NavbarTitleService)
+  private authService = inject(AuthService)
+  protected displayName = signal(this.getDisplayName())
+  protected displayChar = signal(this.getDisplayChar())
   title = this.navbarService.title
 
+  getDisplayChar() {
+    return this.getDisplayName()?.charAt(0).toUpperCase()
+  }
   getDisplayName() {
     const fullName = this.authService.getFullName()?.trim()
     if(fullName) {

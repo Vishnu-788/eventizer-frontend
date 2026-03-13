@@ -12,9 +12,13 @@ export class NavbarComponent {
   private authService = inject(AuthService)
   private titleService = inject(NavbarTitleService)
   protected displayName = signal(this.getDisplayName())
+  protected displayChar = signal(this.getDisplayChar())
   title = this.titleService.title
 
 
+  getDisplayChar() {
+    return this.getDisplayName()?.charAt(0).toUpperCase()
+  }
   getDisplayName() {
     const fullName = this.authService.getFullName()?.trim()
     if(fullName) {
