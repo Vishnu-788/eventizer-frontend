@@ -13,9 +13,9 @@ import { MarkdownComponent } from 'ngx-markdown';
   styleUrl: './llm-chat-component.scss',
 })
 export class LlmChatComponent {
-  titleService = inject(NavbarTitleService);
-  llmService = inject(LlmService)
-
+  private titleService = inject(NavbarTitleService);
+  private llmService = inject(LlmService)
+  
   protected messages = signal<MessageModel[]>([]);
   protected userQuery = new FormControl('');
   ngOnInit() {
