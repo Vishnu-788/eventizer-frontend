@@ -4,10 +4,11 @@ import { LlmService } from '../../../core/services/llm-services/llm-service';
 import { LlmResponse, MessageModel } from '../../../core/models/llmResponse.model';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
   selector: 'app-llm-chat-component',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MarkdownComponent],
   templateUrl: './llm-chat-component.html',
   styleUrl: './llm-chat-component.scss',
 })
@@ -23,6 +24,7 @@ export class LlmChatComponent {
 
   handleSend() {
     const query = this.userQuery.value
+    this.userQuery.reset()
     if(query === null) return;
     this.msgUpdateHelper(query, 'user');
     this.showThinking()

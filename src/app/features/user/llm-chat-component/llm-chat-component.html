@@ -35,7 +35,11 @@
             [class]="msg.author === 'llm' ? 'bot-message' : 'user-message'"
           >
             <div class="message-bubble">
-              {{msg.message}}
+              @if (msg.author === 'llm') {
+                <markdown [data]="msg.message" />
+              } @else {
+                {{msg.message}}
+              }
             </div>
           </div>
         }
